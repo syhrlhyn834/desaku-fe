@@ -14,6 +14,7 @@ export default {
                     value: null
                 }
             ],
+            toastSuccess: false,
             form: {
                 desa: null,
                 kecamatan: null,
@@ -56,7 +57,9 @@ export default {
                 },
                 body: this.form
             })
+
             this.loading = false
+            this.toastSuccess = true
         },
         async updateAlamat() {
             await $fetch(this.$config.public.API_PUBLIC_URL + '/api/address', {
@@ -85,6 +88,14 @@ export default {
 </script>
 
 <template>
+    <v-snackbar v-model="toastSuccess" color="#10B981" :timeout="2500">
+        Data berhasil diperbarui!
+        <template v-slot:actions>
+            <v-btn color="white" variant="text" @click="toastSuccess = false">
+                Tutup
+            </v-btn>
+        </template>
+    </v-snackbar>
     <div class="flex justify-between items-center mb-3">
         <div class="text-2xl font-semibold mb-2">Lokasi Desa</div>
     </div>

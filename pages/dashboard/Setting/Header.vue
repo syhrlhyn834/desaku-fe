@@ -16,6 +16,7 @@ export default {
                 description: null,
             },
             toast: false,
+            toastSuccess: false,
             loading: false
         }
     },
@@ -60,6 +61,14 @@ export default {
 </script>
 
 <template>
+    <v-snackbar v-model="toastSuccess" color="#10B981" :timeout="2500">
+        Data berhasil diperbarui!
+        <template v-slot:actions>
+            <v-btn color="white" variant="text" @click="toastSuccess = false">
+                Tutup
+            </v-btn>
+        </template>
+    </v-snackbar>
     <v-snackbar v-model="toast" color="red" :timeout="3000">
         Thumbnail wajib diisi!
         <template v-slot:actions>

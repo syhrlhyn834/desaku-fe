@@ -38,7 +38,7 @@ useHead({
                 <swiper-slide v-for="image in images">
                     <div class="w-screen h-full bg-cover relative bg-center" :style="backgroundImage(image.url)">
                         <div
-                            class="px-5 absolute bottom-8 description left-[50%] md:left-[10rem] bg-black/40 w-fit text-center text-white text-base md:text-xl">
+                            class="rounded-md px-5 absolute bottom-8 description left-[50%] md:left-[10rem] bg-black/40 w-fit text-center text-white text-base md:text-xl">
                             <span>{{ image.description }}</span>
                         </div>
                     </div>

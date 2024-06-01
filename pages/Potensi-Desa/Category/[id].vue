@@ -1,5 +1,6 @@
 <script setup>
 import moment from 'moment';
+import { windowScrollTo } from "seamless-scroll-polyfill";
 
 const route = useRouter().currentRoute.value
 const potensi = ref(null)
@@ -65,11 +66,11 @@ useHead({
                         </div>
                         <div class="block md:flex">
                             <div class="text-xs md:text-base flex items-center font-medium mt-2">
-                                <IconsDate />
+                                      <IconsDate class="flex-none" />
                                 <span class="ml-1">{{ moment(potensi.created_at).format("LL") }}</span>
                             </div>
                             <div class="text-xs md:text-base flex items-center font-medium mt-2 sm:ml-2">
-                                <IconsTag />
+                                      <IconsTag class="flex-none" />
                                 <span class="ml-1">{{ potensi.category_name }}</span>
                             </div>
                         </div>

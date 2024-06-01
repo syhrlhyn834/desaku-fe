@@ -12,6 +12,7 @@ export default {
                 address: null,
                 copyright: null,
             },
+            toastSuccess: false,
             formSocialMedia: [
                 {
                     name: "Instagram",
@@ -54,6 +55,7 @@ export default {
             })
 
             this.loading = false
+            this.toastSuccess = true
         },
         async updateSocialMedia() {
             await $fetch(this.$config.public.API_PUBLIC_URL + '/api/social-media', {
@@ -82,6 +84,14 @@ export default {
 </script>
 
 <template>
+    <v-snackbar v-model="toastSuccess" color="#10B981" :timeout="2500">
+        Data berhasil diperbarui!
+        <template v-slot:actions>
+            <v-btn color="white" variant="text" @click="toastSuccess = false">
+                Tutup
+            </v-btn>
+        </template>
+    </v-snackbar>
     <div class="flex justify-between items-center mb-3">
         <div class="text-2xl font-semibold mb-2">Pengaturan Footer</div>
     </div>

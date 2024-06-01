@@ -57,11 +57,11 @@ async function changePage() {
                         </div>
                         <div class="text-xs md:text-base block md:flex items-center font-medium mt-2">
                             <div class="flex">
-                                <IconsDate />
+                                      <IconsDate class="flex-none" />
                                 <span class="ml-1 mr-2">{{ moment(news.created_at).format("LL") }}</span>
                             </div>
                             <div class="hidden sm:flex">
-                                <IconsTag />
+                                      <IconsTag class="flex-none" />
                                 <span class="ml-1">{{ news.name }}</span>
                             </div>
                         </div>

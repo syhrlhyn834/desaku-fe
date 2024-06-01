@@ -49,7 +49,7 @@ perangkatDesa.value = await $fetch('/api/perangkat-desa?limit=5')
                 </div>
                 <div class="block md:flex">
                     <div class="w-full md:w-[240px]">
-                        <v-img class="w-full rounded-lg flex-none mx-auto mb-6 md:mb-0" width="100%" aspect-ratio="1"
+                        <v-img class="w-full rounded-md flex-none mx-auto mb-6 md:mb-0" width="100%" aspect-ratio="1"
                             :lazy-src="data.image" :src="data.image" alt="" />
                     </div>
                     <div
