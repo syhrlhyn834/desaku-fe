@@ -4,22 +4,19 @@ definePageMeta({
 });
 
 useHead({
-    title: 'Login - Desaku',
+    title: 'Reset Password - Desaku',
 })
 </script>
 
 <script>
-import { useToken } from '~/stores/token'
-
 export default {
     data() {
         return {
             loading: false,
-            loadingReset: false,
             showPassword: false,
             emailSend: false,
             form: {
-                email: null,
+                token: null,
                 password: null,
             },
             toastUnauthorized: false
@@ -33,45 +30,19 @@ export default {
         });
     },
     methods: {
-        async login() {
-            this.loading = true
-            this.form.content = this.data
-
-            const { valid } = await this.$refs.form.validate()
-
-            if (valid) {
-                try {
-                    const data = await $fetch(this.$config.public.API_PUBLIC_URL + '/api/auth/login', {
-                        method: "POST",
-                        headers: {
-                            Authorization: "Bearer " + useToken().token
-                        },
-                        body: this.form
-                    })
-
-                    useToken().token = data.token
-                    this.loading = false
-                    this.$router.push('/dashboard')
-                } catch (err) {
-                    this.toastUnauthorized = true
-                    this.loading = false
-                }
-            }
-        },
         async resetPassword() {
             try {
-                this.loadingReset = true
-                await $fetch(this.$config.public.API_PUBLIC_URL + '/api/reset-password', {
+                this.form.token = this.$route.query.token
+
+                await $fetch(this.$config.public.API_PUBLIC_URL + '/api/reset-password/verify', {
                     method: "POST",
                     body: this.form
                 })
 
-                this.emailSend = true
+                this.$router.push('/auth/login')
             } catch (err) {
                 this.toastUnauthorized = true
             }
-
-            this.loadingReset = false
         }
     }
 }
@@ -95,20 +66,15 @@ export default {
                 style="border-radius: 36px; padding: 0.3rem; background: linear-gradient(180deg, #0088CC 10%, rgba(33, 150, 243, 0) 30%)">
                 <div class="w-full surface-card py-8 px-5 sm:px-8" style="border-radius: 53px">
                     <div class="text-center mb-5 text-white">
-                        <div class="text-900 text-2xl font-medium mb-3">Welcome Back!</div>
-                        <span class="text-600 font-medium">Sign in to continue</span>
+                        <div class="text-900 text-2xl font-medium mb-3">Reset Password</div>
                     </div>
 
                     <v-form ref="form">
                         <div class="mt-12">
-                            <label for="password1" class="block text-900 font-medium text-lg mb-4">Email</label>
-                            <v-text-field :rules="[v => !!v || 'Field is required']" type="email" v-model="form.email"
-                                dense variant="outlined" hide-details="auto" label="Alamat Email"></v-text-field>
-
-                            <label for="password1" class="block text-900 font-medium text-lg my-4">Password</label>
+                            <label for="password" class="block text-900 font-medium text-lg my-4">Password</label>
                             <v-text-field :rules="[v => !!v || 'Field is required']"
                                 :type="showPassword ? 'text' : 'password'" v-model="form.password" dense
-                                variant="outlined" hide-details="auto" label="Kata Sandi">
+                                variant="outlined" hide-details="auto" label="Kata Sandi Baru">
                                 <template v-slot:append-inner>
                                     <svg class="cursor-pointer" @click="showPassword = true" v-if="!showPassword"
                                         xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
@@ -124,19 +90,9 @@ export default {
                                     </svg>
                                 </template>
                             </v-text-field>
-                            <div class="mt-3">
-                                <span>Lupa password?</span>
-                                <span v-if="!emailSend" @click="resetPassword" class="cursor-pointer ml-1 font-medium">
-                                    <span v-if="!loadingReset">Reset</span>
-                                    <span v-else>Mengirim...</span>
-                                </span>
-                                <span v-else class="ml-1 font-medium">
-                                    Link sudah terkirim!
-                                </span>
-                            </div>
-                            <v-btn elevation="0" @click="login" color="#0088CC" text-color="white"
+                            <v-btn elevation="0" @click="resetPassword" color="#0088CC" text-color="white"
                                 class="w-full mt-5 text-white px-3 py-2">
-                                <span v-if="!loading">Login</span>
+                                <span v-if="!loading">Ubah Password</span>
                                 <Loader v-else />
                             </v-btn>
                         </div>
