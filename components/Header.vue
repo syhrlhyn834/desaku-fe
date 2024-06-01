@@ -41,7 +41,7 @@ headerData.logo = data.logo
 function openNavMobile() {
     navMobile.value = !navMobile.value
 
-    if (navMobile.value){
+    if (navMobile.value) {
         document.documentElement.classList.add('overflow-hidden');
     } else {
         document.documentElement.classList.remove('overflow-hidden');
@@ -52,7 +52,7 @@ function changePage() {
     navMobile.value = false
     document.documentElement.classList.remove('overflow-hidden');
     setTimeout(() => {
-        if (navSelected.value == "/"){
+        if (navSelected.value == "/") {
             useRouter().push('/')
             return
         }
@@ -85,6 +85,8 @@ export default {
         ],
         items: [
             { type: 'header', title: 'Beranda', value: "/" },
+            { type: 'divider' },
+            { type: 'header', title: 'Potensi Desa', value: 'potensi-desa' },
             { type: 'subheader', title: 'Profil Desa' },
             {
                 title: 'Tentang Desa',
@@ -127,11 +129,9 @@ export default {
                 value: 'pengumuman',
             },
             {
-                title: 'Kegiatan Hhaha',
+                title: 'Kegiatan',
                 value: 'kegiatan',
             },
-            { type: 'divider' },
-            { type: 'header', title: 'Potensi Desa', value: 'potensi-desa' },
         ],
     }),
 }
@@ -143,9 +143,7 @@ export default {
             <div class="block min-h-screen pb-10 px-3 py-4">
                 <div class="flex justify-between cursor-pointer border-b border-slate-200 pb-4">
                     <div class="flex-none flex" @click="$router.push('/')">
-                        <img width="40"
-                            :src="headerData.logo"
-                            alt="">
+                        <img width="40" :src="headerData.logo" alt="">
                         <div class="ml-3 block font-semibold">
                             <div>
                                 <span>{{ headerData.site_name }}</span>
@@ -164,9 +162,9 @@ export default {
                         </svg>
                     </div>
                 </div>
-                <div class="overflow-y-scroll pb-7 h-screen">
-                    <v-list selectable v-model:selected="navSelected" @update:selected="changePage"
-                        :items="items"></v-list>
+                <div class="overflow-y-scroll pb-[5rem] h-[calc(100vh - 100px)]">
+                    <v-list style="max-height: 100vh" class="overflow-y-auto pb-8" selectable
+                        v-model:selected="navSelected" @update:selected="changePage" :items="items"></v-list>
                 </div>
             </div>
         </div>
@@ -196,9 +194,7 @@ export default {
             <div :class="{ 'fixed top-0 z-50 animation': headerActive }"
                 class="py-4 px-[1rem] sm:px-[6rem] md:px-[3rem] lg:px-[10rem] xl:px-[14rem] w-full flex items-center bg-white/80 backdrop-blur-sm justify-between top-8">
                 <div class="flex cursor-pointer" @click="$router.push('/')">
-                    <img width="40"
-                        :src="headerData.logo"
-                        alt="">
+                    <img width="40" :src="headerData.logo" alt="">
                     <div class="ml-3 block font-semibold">
                         <div>
                             <span>{{ headerData.site_name }}</span>
@@ -213,6 +209,9 @@ export default {
                     <ul class="list-none p-0 m-0 items-center select-none md:flex hidden cursor-pointer">
                         <div @click="$router.push('/')" class="font-semibold text-[#0088CC] mr-5 border-slate-300">
                             Beranda</div>
+                        <div @click="$router.push('/potensi-desa')"
+                            class="font-semibold text-[#0088CC] mr-5 border-slate-300">
+                            Potensi Desa</div>
                         <div class="mr-3">
                             <v-menu open-on-hover>
                                 <template v-slot:activator="{ props }">
@@ -293,9 +292,6 @@ export default {
                                 </div>
                             </v-menu>
                         </div>
-                        <div @click="$router.push('/potensi-desa')"
-                            class="font-semibold text-[#0088CC] mr-5 border-slate-300">
-                            Potensi Desa</div>
                     </ul>
                     <div @click="openNavMobile" class="md:hidden cursor-pointer bg-[#0088CC] pa-2 rounded-lg">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
