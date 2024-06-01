@@ -1,7 +1,7 @@
 <script setup>
 const potensiCategory = ref(null)
 
-potensiCategory.value = await $fetch('/api/potensi-category?limit=5')
+potensiCategory.value = await $fetch('/api/potensi-category?limit=5&allow_empty=1')
 </script>
 <template>
     <div class="text-[#0088CC] border-[#0088CC] border-b-2 mb-4 text-xl sm:text-2xl font-semibold py-3">

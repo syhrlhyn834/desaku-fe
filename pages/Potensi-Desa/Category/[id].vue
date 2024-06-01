@@ -4,11 +4,34 @@ import moment from 'moment';
 const route = useRouter().currentRoute.value
 const potensi = ref(null)
 const categoryName = ref(null)
+const pageLength = ref(0)
+const page = ref(1)
 
-const { data, category_name } = await $fetch('/api/potensi-desa?category=' + route.params.id)
+const { data, category_name, total } = await $fetch('/api/potensi-desa?limit=5&category=' + route.params.id)
+
+if (!total == 0) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found'
+    })
+}
 
 potensi.value = data
 categoryName.value = category_name
+pageLength.value = Math.ceil(total / 5)
+
+async function changePage() {
+    const { data } = await $fetch(`/api/potensi-desa?limit=5&page=${page.value}&category=` + route.params.id)
+
+    potensi.value = data
+
+    if (navigator.userAgent.includes("Chrome")) {
+        window.scrollTo({ behavior: "smooth", top: 0, left: 0 })
+        return
+    }
+
+    windowScrollTo(window, { behavior: "smooth", top: 0, left: 0 });
+}
 
 definePageMeta({
     layout: 'app'
@@ -28,7 +51,7 @@ useHead({
         <div class="grid grid-cols-1 md:grid-cols-6 md:gap-x-12">
             <div class="block col-span-1 md:col-span-4">
                 <div class="text-[#0088CC] border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
-                    <span>Potensi Desa: {{ category_name }}</span>
+                    <span>Potensi Desa: {{ category_name }} Halaman {{ page }}</span>
                 </div>
                 <div v-if="potensi.length > 0" @click="navigateTo('/potensi-desa/' + potensi.slug)"
                     class="cursor-pointer flex mb-[0.5rem] md:mb-2 h-[160px] md:h-[200px]" v-for="potensi in potensi">
@@ -56,6 +79,8 @@ useHead({
                     </div>
                 </div>
                 <EmptyData v-else />
+                <v-pagination :size="$vuetify.display.mobile ? 'small' : 'default'" class="mt-4 mb-14" v-model="page"
+                    @update:modelValue="changePage" :total-visible="5" :length="pageLength"></v-pagination>
             </div>
             <div class="col-span-2">
                 <PartialsPotensiCategory />

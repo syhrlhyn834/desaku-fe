@@ -15,6 +15,13 @@ const data = reactive({
 
 const dataPerangkatDesa = await $fetch('/api/perangkat-desa/slug/' + route.params.id)
 
+if (!dataPerangkatDesa.name) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found'
+    })
+}
+
 data.name = dataPerangkatDesa.name
 data.job = dataPerangkatDesa.job
 data.image = dataPerangkatDesa.image
@@ -24,6 +31,7 @@ data.nip = dataPerangkatDesa.nip
 perangkatDesa.value = await $fetch('/api/perangkat-desa?limit=5')
 </script>
 <template>
+
     <Head>
         <Title>{{ data.name }} Perangkat Desa</Title>
     </Head>
@@ -41,10 +49,11 @@ perangkatDesa.value = await $fetch('/api/perangkat-desa?limit=5')
                 </div>
                 <div class="block md:flex">
                     <div class="w-full md:w-[240px]">
-                        <v-img class="w-full rounded-lg flex-none mx-auto mb-6 md:mb-0" width="100%" aspect-ratio="1" :lazy-src="data.image" :src="data.image"
-                            alt="" />
+                        <v-img class="w-full rounded-lg flex-none mx-auto mb-6 md:mb-0" width="100%" aspect-ratio="1"
+                            :lazy-src="data.image" :src="data.image" alt="" />
                     </div>
-                    <div class="md:ml-6 flex-1 py-5 md:pl-4 md:pr-10 md:border rounded-md text-base sm:text-lg h-fit border-slate-300">
+                    <div
+                        class="md:ml-6 flex-1 py-5 md:pl-4 md:pr-10 md:border rounded-md text-base sm:text-lg h-fit border-slate-300">
                         <div class="flex border-b border-slate-300 pb-3 mb-2">
                             <div class="font-semibold w-[140px]">
                                 <span>Nama Lengkap</span>
@@ -83,9 +92,11 @@ perangkatDesa.value = await $fetch('/api/perangkat-desa?limit=5')
                 <div class="mb-3 px-5 pt-3 rounded-md border border-slate-300">
                     <div @click="$router.push('/perangkat-desa/' + perangkat.slug)"
                         class="border-slate-300 pb-5 cursor-pointer mb-1 py-2 flex"
-                        v-for="(perangkat,index) in perangkatDesa" :class="index != perangkatDesa.length - 1 ? 'border-b' : ''">
+                        v-for="(perangkat, index) in perangkatDesa"
+                        :class="index != perangkatDesa.length - 1 ? 'border-b' : ''">
                         <div class="flex-none mr-4">
-                            <v-img class="rounded-md" width="60" aspect-ratio="1" :lazy-src="perangkat.image" :src="perangkat.image" alt="" />
+                            <v-img class="rounded-md" width="60" aspect-ratio="1" :lazy-src="perangkat.image"
+                                :src="perangkat.image" alt="" />
                         </div>
                         <div class="block">
                             <div class="font-medium text-[#0088CC] text-base md:text-lg">

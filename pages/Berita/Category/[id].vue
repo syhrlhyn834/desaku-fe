@@ -17,6 +17,13 @@ const pageLength = ref(0)
 
 const { data, total, category_name } = await $fetch(`/api/berita?limit=5&page=${page.value}&category=${route.params.id}`)
 
+if (total == 0) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found'
+    })
+}
+
 news.value = data
 categoryName.value = category_name
 pageLength.value = Math.ceil(total / 5)
@@ -26,7 +33,7 @@ async function changePage() {
 
     news.value = data
     categoryName.value = category_name
-    
+
     if (navigator.userAgent.includes("Chrome")) {
         window.scrollTo({ behavior: "smooth", top: 0, left: 0 })
         return
@@ -52,11 +59,9 @@ useHead({
                     <span>Berita: {{ categoryName }} <span v-if="page != 1">: Halaman {{ page }}</span></span>
                 </div>
                 <div @click="$router.push('/berita/' + news.slug)"
-                    class="cursor-pointer animate-fade flex items-center mb-10"
-                    v-for="news in news">
+                    class="cursor-pointer animate-fade flex items-center mb-10" v-for="news in news">
                     <div class="h-[120px] sm:h-[160px] w-[140px] sm:w-[220px] md:w-[260px] flex-none">
-                        <v-img :lazy-src="news.thumbnail" height="100%" aspect-ratio="4/3"
-                            :src="news.thumbnail" />
+                        <v-img :lazy-src="news.thumbnail" height="100%" aspect-ratio="4/3" :src="news.thumbnail" />
                     </div>
                     <div class="block pl-4">
                         <div class="tetx-base md:text-xl font-semibold">
@@ -77,8 +82,8 @@ useHead({
                         </div>
                     </div>
                 </div>
-                <v-pagination :size="$vuetify.display.mobile ? 'small' : 'default'" class="mt-4 mb-14" v-model="page" @update:modelValue="changePage" :total-visible="5"
-                    :length="pageLength"></v-pagination>
+                <v-pagination :size="$vuetify.display.mobile ? 'small' : 'default'" class="mt-4 mb-14" v-model="page"
+                    @update:modelValue="changePage" :total-visible="5" :length="pageLength"></v-pagination>
             </div>
             <div class="col-span-2">
                 <PartialsNewsCategory />

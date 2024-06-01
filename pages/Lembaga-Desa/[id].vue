@@ -8,6 +8,13 @@ const data = ref(null)
 
 data.value = await $fetch('/api/lembaga/slug/' + route.params.id)
 
+if (!data.value.name) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found'
+    })
+}
+
 useHead({
     title: data.value.name + " Lembaga Desa"
 })
@@ -23,7 +30,8 @@ useHead({
             <h1 class="mb-8 font-semibold text-[#0088CC] text-2xl">{{ data.name }}</h1>
             <div class="block md:flex items-center">
                 <div clas="flex-none w-full">
-                    <v-img :lazy-src="data.image" :src="data.image" class="rounded-md mx-auto" cover width="240" aspect-ratio="16/9"/>
+                    <v-img :lazy-src="data.image" :src="data.image" class="rounded-md mx-auto" cover width="240"
+                        aspect-ratio="16/9" />
                 </div>
                 <div class="block text-base md:text-lg font-medium description-lembaga">
                     <div class="flex py-3 border-b border-slate-300">

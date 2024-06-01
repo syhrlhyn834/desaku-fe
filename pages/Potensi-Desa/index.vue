@@ -2,11 +2,26 @@
 import moment from 'moment';
 
 const potensi = ref([])
-const latestPotensi = ref([])
-const potensiCategory = ref([])
+const page = ref(1)
+const pageLength = ref(1)
 
-potensi.value = (await $fetch('/api/potensi-desa')).data
-potensiCategory.value = await $fetch('/api/potensi-category')
+const { data, total } = await $fetch('/api/potensi-desa?limit=5')
+
+potensi.value = data
+pageLength.value = Math.ceil(total / 5)
+
+async function changePage() {
+    const { data } = await $fetch(`/api/potensi-desa?limit=5&page=${page.value}`)
+
+    potensi.value = data
+
+    if (navigator.userAgent.includes("Chrome")) {
+        window.scrollTo({ behavior: "smooth", top: 0, left: 0 })
+        return
+    }
+
+    windowScrollTo(window, { behavior: "smooth", top: 0, left: 0 });
+}
 
 definePageMeta({
     layout: 'app'
@@ -55,6 +70,8 @@ useHead({
                     </div>
                 </div>
                 <EmptyData v-else />
+                <v-pagination :size="$vuetify.display.mobile ? 'small' : 'default'" class="mt-4 mb-14" v-model="page"
+                    @update:modelValue="changePage" :total-visible="5" :length="pageLength"></v-pagination>
             </div>
             <div class="col-span-2">
                 <PartialsPotensiCategory />

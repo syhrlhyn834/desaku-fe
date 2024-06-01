@@ -10,6 +10,13 @@ const post = reactive({
 
 const { title, name, content } = await $fetch('/api/potensi-desa/slug/' + route.params.id)
 
+if (!title) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found'
+    })
+}
+
 post.title = title
 post.content = content
 categoryName.value = name
@@ -19,6 +26,7 @@ definePageMeta({
 });
 </script>
 <template>
+
     <Head>
         <Title>{{ post.title }}</Title>
     </Head>

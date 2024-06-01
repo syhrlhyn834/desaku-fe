@@ -9,6 +9,13 @@ const post = ref(null)
 const route = useRouter().currentRoute.value
 
 post.value = await $fetch('/api/berita/slug/' + route.params.id)
+
+if (!post.value.title) {
+    throw createError({
+        statusCode: 404,
+        statusMessage: 'Page Not Found'
+    })
+}
 </script>
 <template>
 
