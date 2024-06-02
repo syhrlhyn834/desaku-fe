@@ -69,7 +69,7 @@ export default {
             </template>
 
             <div class="block rounded-lg cursor-pointer mt-2 bg-white border border-slate-200 pt-2">
-                <div @click="navigateTo('/dashboard/profile')"
+                <div @click="navigateTo('/dashboard/admin-profile')"
                     class="mb-2 pt-4 flex px-7 border-b hover:bg-[#EDEDED] border-slate-300 pb-3">
                     <div class="bg-[#DBEAFE] rounded-lg flex items-center justify-center w-[40px] h-[40px]">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">
@@ -107,7 +107,7 @@ export default {
                 </template>
 
                 <div class="block rounded-lg cursor-pointer mt-2 bg-white border border-slate-200 pt-2">
-                    <div @click="navigateTo('/dashboard/profile')"
+                    <div @click="navigateTo('/dashboard/admin-profile')"
                         class="mb-2 pt-4 flex px-7 border-b hover:bg-[#EDEDED] border-slate-300 pb-3">
                         <div class="bg-[#DBEAFE] rounded-lg flex items-center justify-center w-[40px] h-[40px]">
                             <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em" viewBox="0 0 24 24">

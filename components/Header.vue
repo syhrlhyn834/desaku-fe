@@ -163,11 +163,11 @@ export default {
                     </div>
                 </div>
                 <div class="h-screen">
-                    <v-list selectable v-model:selected="navSelected" @update:selected="changePage">
+                    <v-list selectable opened="profil-desa" v-model:selected="navSelected" @update:selected="changePage">
                         <v-list-item title="Beranda" value=""></v-list-item>
                         <v-list-item title="Potensi Desa" value="potensi-desa"></v-list-item>
 
-                        <v-list-group>
+                        <v-list-group value="profiil-desa">
                             <template v-slot:activator="{ props }">
                                 <v-list-item v-bind="props" title="Profil Desa"></v-list-item>
                             </template>
