@@ -42,6 +42,7 @@ export default {
             })
 
             this.loading = false
+            location.reload()
         },
     }
 }

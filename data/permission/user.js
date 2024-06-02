@@ -18,4 +18,5 @@ export default [
     "Dashboard-Potensi-Desa",
     "Dashboard-Potensi-Desa-add",
     "Dashboard-Potensi-Desa-edit",
+    "Dashboard-Profile"
 ]
