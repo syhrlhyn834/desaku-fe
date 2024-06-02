@@ -924,7 +924,7 @@ const _routes = [
     meta: __nuxt_page_meta$i || {},
     alias: (__nuxt_page_meta$i == null ? void 0 : __nuxt_page_meta$i.alias) || [],
     redirect: (__nuxt_page_meta$i == null ? void 0 : __nuxt_page_meta$i.redirect) || void 0,
-    component: () => import('./_id_-e51abe77.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-93672758.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$h == null ? void 0 : __nuxt_page_meta$h.name) ?? "Berita",
@@ -957,6 +957,14 @@ const _routes = [
     alias: [],
     redirect: void 0,
     component: () => import('./index-e9117e40.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "Dashboard-Admin-Profile",
+    path: "/Dashboard/Admin-Profile",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./Admin-Profile-3098e40e.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Admin-add",
@@ -1191,38 +1199,28 @@ const _routes = [
     component: () => import('./index-3feeabf2.mjs').then((m) => m.default || m)
   },
   {
-    name: "Dashboard-Profile",
-    path: "/Dashboard/Profile",
-    children: [
-      {
-        name: "Dashboard-Profile-About",
-        path: "About",
-        meta: {},
-        alias: [],
-        redirect: void 0,
-        component: () => import('./About-1f56ada5.mjs').then((m) => m.default || m)
-      },
-      {
-        name: "Dashboard-Profile-History",
-        path: "History",
-        meta: {},
-        alias: [],
-        redirect: void 0,
-        component: () => import('./History-85092405.mjs').then((m) => m.default || m)
-      },
-      {
-        name: "Dashboard-Profile-Visi",
-        path: "Visi",
-        meta: {},
-        alias: [],
-        redirect: void 0,
-        component: () => import('./Visi-080cefb9.mjs').then((m) => m.default || m)
-      }
-    ],
+    name: "Dashboard-Profile-About",
+    path: "/Dashboard/Profile/About",
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./Profile-ae5d96cc.mjs').then((m) => m.default || m)
+    component: () => import('./About-1f56ada5.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "Dashboard-Profile-History",
+    path: "/Dashboard/Profile/History",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./History-85092405.mjs').then((m) => m.default || m)
+  },
+  {
+    name: "Dashboard-Profile-Visi",
+    path: "/Dashboard/Profile/Visi",
+    meta: {},
+    alias: [],
+    redirect: void 0,
+    component: () => import('./Visi-080cefb9.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-Footer",
@@ -1254,7 +1252,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-3a134952.mjs').then((m) => m.default || m)
+    component: () => import('./index-b99fe788.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-Location",
@@ -1294,7 +1292,7 @@ const _routes = [
     meta: __nuxt_page_meta$f || {},
     alias: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.alias) || [],
     redirect: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.redirect) || void 0,
-    component: () => import('./_id_-8c458504.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-20ff3321.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.name) ?? "Kegiatan",
@@ -1302,7 +1300,7 @@ const _routes = [
     meta: __nuxt_page_meta$e || {},
     alias: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.alias) || [],
     redirect: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.redirect) || void 0,
-    component: () => import('./index-e6efe146.mjs').then((m) => m.default || m)
+    component: () => import('./index-1df479a1.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$d == null ? void 0 : __nuxt_page_meta$d.name) ?? "Lembaga-Desa-id",
@@ -1326,7 +1324,7 @@ const _routes = [
     meta: __nuxt_page_meta$b || {},
     alias: (__nuxt_page_meta$b == null ? void 0 : __nuxt_page_meta$b.alias) || [],
     redirect: (__nuxt_page_meta$b == null ? void 0 : __nuxt_page_meta$b.redirect) || void 0,
-    component: () => import('./_id_-bcb83945.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-f3613a28.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.name) ?? "Pengumuman",
@@ -1334,7 +1332,7 @@ const _routes = [
     meta: __nuxt_page_meta$a || {},
     alias: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.alias) || [],
     redirect: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.redirect) || void 0,
-    component: () => import('./index-f4d78c2f.mjs').then((m) => m.default || m)
+    component: () => import('./index-2a892d9d.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.name) ?? "Perangkat-Desa-id",
@@ -18085,13 +18083,13 @@ const _wrapIf = (component, props, slots) => {
   return { default: () => props ? h(component, props === true ? {} : props, slots) : h(Fragment, {}, slots) };
 };
 const layouts = {
-  "app-layout": () => import('./AppLayout-d8f0cf32.mjs').then((m) => m.default || m),
+  "app-layout": () => import('./AppLayout-7aee6bc6.mjs').then((m) => m.default || m),
   "app-menu-item": () => import('./AppMenuItem-66160126.mjs').then((m) => m.default || m),
   "app-sidebar": () => import('./AppSidebar-eaed5dc7.mjs').then((m) => m.default || m),
-  "app-topbar": () => import('./AppTopbar-b1ef8d69.mjs').then((m) => m.default || m),
-  app: () => import('./app-b3c1f1e8.mjs').then((m) => m.default || m),
+  "app-topbar": () => import('./AppTopbar-c0ce5482.mjs').then((m) => m.default || m),
+  app: () => import('./app-45212406.mjs').then((m) => m.default || m),
   blank: () => import('./blank-0125dac0.mjs').then((m) => m.default || m),
-  default: () => import('./default-64d2d627.mjs').then((m) => m.default || m)
+  default: () => import('./default-d28b5407.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent$1({
   name: "LayoutLoader",
