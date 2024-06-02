@@ -827,6 +827,9 @@ function polyfillAsVueUseHead(head) {
 const vueuse_head_polyfill_M7DKUOwKp5 = /* @__PURE__ */ defineNuxtPlugin((nuxtApp) => {
   polyfillAsVueUseHead(nuxtApp.vueApp._context.provides.usehead);
 });
+const __nuxt_page_meta$l = {
+  layout: "Blank"
+};
 const __nuxt_page_meta$k = {
   layout: "Blank"
 };
@@ -892,12 +895,20 @@ const __nuxt_page_meta = {
 };
 const _routes = [
   {
+    name: (__nuxt_page_meta$l == null ? void 0 : __nuxt_page_meta$l.name) ?? "Auth-Forgot-Password",
+    path: (__nuxt_page_meta$l == null ? void 0 : __nuxt_page_meta$l.path) ?? "/Auth/Forgot-Password",
+    meta: __nuxt_page_meta$l || {},
+    alias: (__nuxt_page_meta$l == null ? void 0 : __nuxt_page_meta$l.alias) || [],
+    redirect: (__nuxt_page_meta$l == null ? void 0 : __nuxt_page_meta$l.redirect) || void 0,
+    component: () => import('./Forgot-Password-3a883309.mjs').then((m) => m.default || m)
+  },
+  {
     name: (__nuxt_page_meta$k == null ? void 0 : __nuxt_page_meta$k.name) ?? "Auth-Login",
     path: (__nuxt_page_meta$k == null ? void 0 : __nuxt_page_meta$k.path) ?? "/Auth/Login",
     meta: __nuxt_page_meta$k || {},
     alias: (__nuxt_page_meta$k == null ? void 0 : __nuxt_page_meta$k.alias) || [],
     redirect: (__nuxt_page_meta$k == null ? void 0 : __nuxt_page_meta$k.redirect) || void 0,
-    component: () => import('./Login-cbe1112b.mjs').then((m) => m.default || m)
+    component: () => import('./Login-2812ef5b.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$j == null ? void 0 : __nuxt_page_meta$j.name) ?? "Berita-Category-id",
@@ -905,7 +916,7 @@ const _routes = [
     meta: __nuxt_page_meta$j || {},
     alias: (__nuxt_page_meta$j == null ? void 0 : __nuxt_page_meta$j.alias) || [],
     redirect: (__nuxt_page_meta$j == null ? void 0 : __nuxt_page_meta$j.redirect) || void 0,
-    component: () => import('./_id_-24980903.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-e17edf01.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$i == null ? void 0 : __nuxt_page_meta$i.name) ?? "Berita-id",
@@ -913,7 +924,7 @@ const _routes = [
     meta: __nuxt_page_meta$i || {},
     alias: (__nuxt_page_meta$i == null ? void 0 : __nuxt_page_meta$i.alias) || [],
     redirect: (__nuxt_page_meta$i == null ? void 0 : __nuxt_page_meta$i.redirect) || void 0,
-    component: () => import('./_id_-77db2055.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-e51abe77.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$h == null ? void 0 : __nuxt_page_meta$h.name) ?? "Berita",
@@ -921,7 +932,7 @@ const _routes = [
     meta: __nuxt_page_meta$h || {},
     alias: (__nuxt_page_meta$h == null ? void 0 : __nuxt_page_meta$h.alias) || [],
     redirect: (__nuxt_page_meta$h == null ? void 0 : __nuxt_page_meta$h.redirect) || void 0,
-    component: () => import('./index-7d22554c.mjs').then((m) => m.default || m)
+    component: () => import('./index-bc6f79d9.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities-add",
@@ -945,15 +956,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-e963866f.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "Dashboard-Admin-Profile",
-    path: "/Dashboard/Admin-Profile",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./Admin-Profile-9889fa1a.mjs').then((m) => m.default || m)
+    component: () => import('./index-e9117e40.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Admin-add",
@@ -1001,7 +1004,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-11e21211.mjs').then((m) => m.default || m)
+    component: () => import('./index-a4fa2104.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery-image-add",
@@ -1025,7 +1028,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-b1cefa6c.mjs').then((m) => m.default || m)
+    component: () => import('./index-ed2c1a3b.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery-video-add",
@@ -1121,7 +1124,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-76a885ff.mjs').then((m) => m.default || m)
+    component: () => import('./index-1cdd6c74.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Perangkat-Desa-add",
@@ -1185,31 +1188,41 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-080e7552.mjs').then((m) => m.default || m)
+    component: () => import('./index-3feeabf2.mjs').then((m) => m.default || m)
   },
   {
-    name: "Dashboard-Profile-About",
-    path: "/Dashboard/Profile/About",
+    name: "Dashboard-Profile",
+    path: "/Dashboard/Profile",
+    children: [
+      {
+        name: "Dashboard-Profile-About",
+        path: "About",
+        meta: {},
+        alias: [],
+        redirect: void 0,
+        component: () => import('./About-1f56ada5.mjs').then((m) => m.default || m)
+      },
+      {
+        name: "Dashboard-Profile-History",
+        path: "History",
+        meta: {},
+        alias: [],
+        redirect: void 0,
+        component: () => import('./History-85092405.mjs').then((m) => m.default || m)
+      },
+      {
+        name: "Dashboard-Profile-Visi",
+        path: "Visi",
+        meta: {},
+        alias: [],
+        redirect: void 0,
+        component: () => import('./Visi-080cefb9.mjs').then((m) => m.default || m)
+      }
+    ],
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./About-979fe880.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "Dashboard-Profile-History",
-    path: "/Dashboard/Profile/History",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./History-9a359001.mjs').then((m) => m.default || m)
-  },
-  {
-    name: "Dashboard-Profile-Visi",
-    path: "/Dashboard/Profile/Visi",
-    meta: {},
-    alias: [],
-    redirect: void 0,
-    component: () => import('./Visi-dcf5de96.mjs').then((m) => m.default || m)
+    component: () => import('./Profile-ae5d96cc.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-Footer",
@@ -1217,7 +1230,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./Footer-38494b16.mjs').then((m) => m.default || m)
+    component: () => import('./Footer-0de29556.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-Header",
@@ -1225,7 +1238,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./Header-11089faa.mjs').then((m) => m.default || m)
+    component: () => import('./Header-68289fd7.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-HomepageImage-add",
@@ -1249,7 +1262,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./Location-406e742b.mjs').then((m) => m.default || m)
+    component: () => import('./Location-4bbe73bc.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Struktur-Organisasi",
@@ -1273,7 +1286,7 @@ const _routes = [
     meta: __nuxt_page_meta$g || {},
     alias: (__nuxt_page_meta$g == null ? void 0 : __nuxt_page_meta$g.alias) || [],
     redirect: (__nuxt_page_meta$g == null ? void 0 : __nuxt_page_meta$g.redirect) || void 0,
-    component: () => import('./Galeri-ce287062.mjs').then((m) => m.default || m)
+    component: () => import('./Galeri-69e144f8.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.name) ?? "Kegiatan-id",
@@ -1289,7 +1302,7 @@ const _routes = [
     meta: __nuxt_page_meta$e || {},
     alias: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.alias) || [],
     redirect: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.redirect) || void 0,
-    component: () => import('./index-48ae37ef.mjs').then((m) => m.default || m)
+    component: () => import('./index-e6efe146.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$d == null ? void 0 : __nuxt_page_meta$d.name) ?? "Lembaga-Desa-id",
@@ -1297,7 +1310,7 @@ const _routes = [
     meta: __nuxt_page_meta$d || {},
     alias: (__nuxt_page_meta$d == null ? void 0 : __nuxt_page_meta$d.alias) || [],
     redirect: (__nuxt_page_meta$d == null ? void 0 : __nuxt_page_meta$d.redirect) || void 0,
-    component: () => import('./_id_-c3386536.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-978bdd03.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$c == null ? void 0 : __nuxt_page_meta$c.name) ?? "Lembaga-Desa",
@@ -1321,7 +1334,7 @@ const _routes = [
     meta: __nuxt_page_meta$a || {},
     alias: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.alias) || [],
     redirect: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.redirect) || void 0,
-    component: () => import('./index-b7693c5b.mjs').then((m) => m.default || m)
+    component: () => import('./index-f4d78c2f.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.name) ?? "Perangkat-Desa-id",
@@ -1329,7 +1342,7 @@ const _routes = [
     meta: __nuxt_page_meta$9 || {},
     alias: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.alias) || [],
     redirect: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.redirect) || void 0,
-    component: () => import('./_id_-c61c21d5.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-58d2642a.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$8 == null ? void 0 : __nuxt_page_meta$8.name) ?? "Perangkat-Desa",
@@ -1345,7 +1358,7 @@ const _routes = [
     meta: __nuxt_page_meta$7 || {},
     alias: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.alias) || [],
     redirect: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.redirect) || void 0,
-    component: () => import('./_id_-83466acf.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-aff79ada.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.name) ?? "Potensi-Desa-id",
@@ -1353,7 +1366,7 @@ const _routes = [
     meta: __nuxt_page_meta$6 || {},
     alias: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.alias) || [],
     redirect: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.redirect) || void 0,
-    component: () => import('./_id_-f3f05caf.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-9516c0d8.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.name) ?? "Potensi-Desa",
@@ -1361,7 +1374,7 @@ const _routes = [
     meta: __nuxt_page_meta$5 || {},
     alias: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.alias) || [],
     redirect: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.redirect) || void 0,
-    component: () => import('./index-8713997e.mjs').then((m) => m.default || m)
+    component: () => import('./index-5967b593.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "Sejarah-Desa",
@@ -1401,7 +1414,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./index-1efd1867.mjs').then((m) => m.default || m)
+    component: () => import('./index-041d2d66.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -1504,7 +1517,8 @@ const user = [
   "Dashboard-Activities-edit",
   "Dashboard-Potensi-Desa",
   "Dashboard-Potensi-Desa-add",
-  "Dashboard-Potensi-Desa-edit"
+  "Dashboard-Potensi-Desa-edit",
+  "Dashboard-Profile"
 ];
 const auth_45global = /* @__PURE__ */ defineNuxtRouteMiddleware((to, from) => {
   let token = useToken().token;
@@ -18069,13 +18083,13 @@ const _wrapIf = (component, props, slots) => {
   return { default: () => props ? h(component, props === true ? {} : props, slots) : h(Fragment, {}, slots) };
 };
 const layouts = {
-  "app-layout": () => import('./AppLayout-6d8c18ee.mjs').then((m) => m.default || m),
+  "app-layout": () => import('./AppLayout-c3983d89.mjs').then((m) => m.default || m),
   "app-menu-item": () => import('./AppMenuItem-66160126.mjs').then((m) => m.default || m),
   "app-sidebar": () => import('./AppSidebar-eaed5dc7.mjs').then((m) => m.default || m),
-  "app-topbar": () => import('./AppTopbar-efa624dc.mjs').then((m) => m.default || m),
-  app: () => import('./app-2f95c562.mjs').then((m) => m.default || m),
+  "app-topbar": () => import('./AppTopbar-b646b8cc.mjs').then((m) => m.default || m),
+  app: () => import('./app-9ccbb282.mjs').then((m) => m.default || m),
   blank: () => import('./blank-0125dac0.mjs').then((m) => m.default || m),
-  default: () => import('./default-647c9557.mjs').then((m) => m.default || m)
+  default: () => import('./default-47cbf4d3.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent$1({
   name: "LayoutLoader",
