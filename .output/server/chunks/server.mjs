@@ -18044,6 +18044,8 @@ const vuetify_8NhHJigKc1 = /* @__PURE__ */ defineNuxtPlugin((nuxtApp) => {
       VTextarea,
       VDataTable,
       VList,
+      VListGroup,
+      VListItem,
       VSelect,
       VImg,
       VPagination,
@@ -18083,13 +18085,13 @@ const _wrapIf = (component, props, slots) => {
   return { default: () => props ? h(component, props === true ? {} : props, slots) : h(Fragment, {}, slots) };
 };
 const layouts = {
-  "app-layout": () => import('./AppLayout-c3983d89.mjs').then((m) => m.default || m),
+  "app-layout": () => import('./AppLayout-d8f0cf32.mjs').then((m) => m.default || m),
   "app-menu-item": () => import('./AppMenuItem-66160126.mjs').then((m) => m.default || m),
   "app-sidebar": () => import('./AppSidebar-eaed5dc7.mjs').then((m) => m.default || m),
-  "app-topbar": () => import('./AppTopbar-b646b8cc.mjs').then((m) => m.default || m),
-  app: () => import('./app-9ccbb282.mjs').then((m) => m.default || m),
+  "app-topbar": () => import('./AppTopbar-b1ef8d69.mjs').then((m) => m.default || m),
+  app: () => import('./app-b3c1f1e8.mjs').then((m) => m.default || m),
   blank: () => import('./blank-0125dac0.mjs').then((m) => m.default || m),
-  default: () => import('./default-47cbf4d3.mjs').then((m) => m.default || m)
+  default: () => import('./default-64d2d627.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent$1({
   name: "LayoutLoader",

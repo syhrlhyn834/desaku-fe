@@ -31,6 +31,11 @@
         }
     }
 
+    .layout-menu-button:hover {
+        color: white;
+        background-color: #f1f5f9;
+    }
+
     .layout-topbar-button {
         display: inline-flex;
         justify-content: center;
@@ -42,12 +47,7 @@
         height: 3rem;
         cursor: pointer;
         transition: background-color $transitionDuration;
-
-        &:hover {
-            color: var(--text-color);
-            background-color: var(--surface-hover);
-        }
-
+        
         &:focus {
             @include focused();
         }
