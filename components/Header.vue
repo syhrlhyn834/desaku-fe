@@ -74,14 +74,14 @@ export default {
     data: () => ({
         open: ['Users'],
         admins: [
-            ['Management', 'mdi-account-multiple-outline'],
-            ['Settings', 'mdi-cog-outline'],
+            ['Management'],
+            ['Settings'],
         ],
         cruds: [
-            ['Create', 'mdi-plus-outline'],
-            ['Read', 'mdi-file-outline'],
-            ['Update', 'mdi-update'],
-            ['Delete', 'mdi-delete'],
+            ['Create'],
+            ['Read'],
+            ['Update'],
+            ['Delete'],
         ],
         items: [
             { type: 'header', title: 'Beranda', value: "/" },
@@ -162,9 +162,40 @@ export default {
                         </svg>
                     </div>
                 </div>
-                <div class="overflow-y-scroll pb-[5rem] h-[calc(100vh - 100px)]">
-                    <v-list style="max-height: 100vh" class="overflow-y-auto pb-8" selectable
-                        v-model:selected="navSelected" @update:selected="changePage" :items="items"></v-list>
+                <div class="h-screen">
+                    <v-list selectable v-model:selected="navSelected" @update:selected="changePage">
+                        <v-list-item title="Beranda" value=""></v-list-item>
+                        <v-list-item title="Potensi Desa" value="potensi-desa"></v-list-item>
+
+                        <v-list-group>
+                            <template v-slot:activator="{ props }">
+                                <v-list-item v-bind="props" title="Profil Desa"></v-list-item>
+                            </template>
+
+                            <v-list-item title="Tentang Desa" value="tentang-desa"></v-list-item>
+                            <v-list-item title="Visi Misi" value="visi-misi"></v-list-item>
+                            <v-list-item title="Sejarah Desa" value="sejarah-desa"></v-list-item>
+                        </v-list-group>
+                        <v-list-group>
+                            <template v-slot:activator="{ props }">
+                                <v-list-item v-bind="props" title="Pemerintahan"></v-list-item>
+                            </template>
+
+                            <v-list-item title="Struktur Organisasi" value="struktur-organisasi"></v-list-item>
+                            <v-list-item title="Lembaga Desa" value="lembaga-desa"></v-list-item>
+                            <v-list-item title="Perangkat Desa" value="perangkat-desa"></v-list-item>
+                        </v-list-group>
+                        <v-list-group>
+                            <template v-slot:activator="{ props }">
+                                <v-list-item v-bind="props" title="Informasi Publik"></v-list-item>
+                            </template>
+
+                            <v-list-item title="Berita" value="berita"></v-list-item>
+                            <v-list-item title="Pengumuman" value="pengumuman"></v-list-item>
+                            <v-list-item title="Kegiatan" value="kegiatan"></v-list-item>
+                            <v-list-item title="Galeri Desa" value="galeri"></v-list-item>
+                        </v-list-group>
+                    </v-list>
                 </div>
             </div>
         </div>
