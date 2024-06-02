@@ -49,12 +49,19 @@ async function changePage() {
                         <div class="text-base md:text-lg font-semibold">
                             <span class="line-clamp-2">{{ announcement.title }}</span>
                         </div>
-                        <div class="text-md flex items-center font-medium mt-2">
-                                  <IconsDate class="flex-none" />
-                            <span class="ml-1">{{ moment(announcement.created_at).format("LL") }}</span>
+                        <div class="text-sm md:text-base block sm:flex items-center font-medium mt-2">
+                            <div class="flex items-center">
+                                <IconsDate class="flex-none" />
+                                <span class="ml-1">{{ moment(announcement.created_at).format("LL") }}</span>
+                            </div>
+                            <div class="flex items-center sm:ml-2">
+                                <IconsAuthor class="flex-none" />
+                                <span class="ml-1">{{ announcement.name }}</span>
+                            </div>
                         </div>
                         <div class="mt-3">
-                            <span class="text-md sm:text-base line-clamp-2 sm:line-clamp-3">{{ announcement.description }}</span>
+                            <span class="text-md sm:text-base line-clamp-2 sm:line-clamp-3">{{ announcement.description
+                                }}</span>
                         </div>
                     </div>
                 </div>

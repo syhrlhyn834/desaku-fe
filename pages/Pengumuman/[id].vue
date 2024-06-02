@@ -6,6 +6,7 @@ const post = reactive({
     title: null,
     content: null,
     created_at: null,
+    created_by: null
 })
 
 const data = await $fetch('/api/pengumuman/slug/' + route.params.id)
@@ -13,6 +14,7 @@ const data = await $fetch('/api/pengumuman/slug/' + route.params.id)
 post.title = data.title
 post.content = data.content
 post.created_at = data.created_at
+post.created_by = data.name
 
 definePageMeta({
     layout: 'app'
@@ -33,9 +35,15 @@ definePageMeta({
                 <div class="text-[#0088CC] mb-2 text-xl md:text-2xl font-semibold py-3">
                     <span>{{ post.title }}</span>
                 </div>
-                <div class="text-sm flex items-center font-medium mt-2 mb-4">
-                    <IconsDate />
-                    <span class="ml-1">{{ moment(post.created_at).format("LL") }}</span>
+                <div class="text-sm md:text-base block sm:flex items-center font-normal mt-2 mb-4">
+                    <div class="flex items-center">
+                        <IconsDate class="flex-none" />
+                        <span class="ml-1">{{ moment(post.created_at).format("LL") }}</span>
+                    </div>
+                    <div class="flex items-center sm:ml-2">
+                        <IconsAuthor class="flex-none" />
+                        <span class="ml-1">Ditulis oleh {{ post.created_by }}</span>
+                    </div>
                 </div>
                 <div class="quill-content" v-html="post.content ?? ''"></div>
             </div>
