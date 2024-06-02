@@ -22,7 +22,8 @@ export default {
                 email: null,
                 password: null,
             },
-            toastUnauthorized: false
+            toastUnauthorized: false,
+            toastUserNotFound: false
         }
     },
     mounted() {
@@ -51,7 +52,7 @@ export default {
 
                     useToken().token = data.token
                     this.loading = false
-                    this.$router.push('/dashboard')
+                    location.href = '/dashboard'
                 } catch (err) {
                     this.toastUnauthorized = true
                     this.loading = false
@@ -68,7 +69,7 @@ export default {
 
                 this.emailSend = true
             } catch (err) {
-                this.toastUnauthorized = true
+                this.toastUserNotFound = true
             }
 
             this.loadingReset = false
@@ -79,6 +80,14 @@ export default {
 
 <template>
     <v-snackbar v-model="toastUnauthorized" color="red" :timeout="3000">
+        User tidak ditemukan atau password salah!
+        <template v-slot:actions>
+            <v-btn color="white" variant="text" @click="toastUnauthorized = false">
+                Tutup
+            </v-btn>
+        </template>
+    </v-snackbar>
+    <v-snackbar v-model="toastUserNotFound" color="red" :timeout="3000">
         User tidak ditemukan!
         <template v-slot:actions>
             <v-btn color="white" variant="text" @click="toastUnauthorized = false">

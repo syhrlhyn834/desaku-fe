@@ -136,7 +136,7 @@ export default {
                                     </svg>
                                 </div>
                             </a>
-                            <div @click="$router.push('/dashboard/potensi-desa/edit?id=' + item.uuid)"
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" @click="$router.push('/dashboard/potensi-desa/edit?id=' + item.uuid)"
                                 class="cursor-pointer mx-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
@@ -145,7 +145,7 @@ export default {
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div class="cursor-pointer" @click="openModalRemovePotensi(item.uuid)">
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" class="cursor-pointer" @click="openModalRemovePotensi(item.uuid)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
                                     <path fill="#212121"
@@ -176,7 +176,7 @@ export default {
                     <template #bottom></template>
                     <template v-slot:item.actions="{ item }">
                         <div class="flex justify-end">
-                            <div @click="$router.push('/dashboard/potensi-desa/edit?id=' + item.uuid)"
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" @click="$router.push('/dashboard/potensi-desa/edit?id=' + item.uuid)"
                                 class="cursor-pointer mx-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
@@ -185,7 +185,7 @@ export default {
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div class="cursor-pointer" @click="openModalRemovePotensi(item.uuid)">
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" class="cursor-pointer" @click="openModalRemovePotensi(item.uuid)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
                                     <path fill="#212121"

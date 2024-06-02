@@ -21,7 +21,7 @@ export default {
             headersImages: [
                 { title: 'Description', align: 'start', sortable: false, key: 'description', width: "300px" },
                 { title: 'Image', align: 'start', key: 'url' },
-                { title: 'Actions', align: 'center', key: 'actions', sortable: false },
+                { title: 'Actions', align: 'end', key: 'actions', sortable: false },
             ],
             headersVideos: [
                 { title: 'Description', align: 'start', sortable: false, key: 'description', width: "300px" },
@@ -167,8 +167,8 @@ export default {
                         <v-img :src="value" width="100" height="100"></v-img>
                     </template>
                     <template v-slot:item.actions="{ item }">
-                        <div class="flex justify-center">
-                            <div @click="$router.push('/dashboard/gallery/image/edit?id=' + item.uuid)"
+                        <div class="flex justify-end">
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" @click="$router.push('/dashboard/gallery/image/edit?id=' + item.uuid)"
                                 class="cursor-pointer mx-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
@@ -177,7 +177,7 @@ export default {
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div class="flex justify-center">
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" class="flex justify-center">
                                 <div class="cursor-pointer" @click="openModalRemoveImages(item.uuid)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                         viewBox="0 0 24 24">
@@ -212,7 +212,7 @@ export default {
                     </template>
                     <template v-slot:item.actions="{ item }">
                         <div class="flex float-right">
-                            <div class="cursor-pointer" @click="openModalRemoveVideos(item.uuid)">
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" class="cursor-pointer" @click="openModalRemoveVideos(item.uuid)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
                                     <path fill="#212121"

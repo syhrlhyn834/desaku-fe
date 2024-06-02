@@ -7,7 +7,6 @@ const images = ref([])
 const videos = ref([])
 const page = ref(1)
 const pageLength = ref(0)
-const reRenderVideos = ref(false)
 
 onMounted(async () => {
     await nextTick(() => {
