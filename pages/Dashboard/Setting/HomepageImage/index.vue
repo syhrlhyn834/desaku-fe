@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-    title: 'Setting Homepage Image'
+    title: 'Pengaturan Gambar Slider'
 });
 </script>
 <script>
