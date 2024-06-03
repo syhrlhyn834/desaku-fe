@@ -94,7 +94,7 @@ export default {
                                 variant="outlined" hide-details="auto" label="Judul Potensi Desa"></v-text-field>
                         </div>
                         <div class="mt-4">
-                            <v-textarea :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined"
+                            <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined"
                                 label="Deskripsi Potensi Desa" clearable v-model="form.description"></v-textarea>
                         </div>
                         <v-select :rules="[v => !!v || 'Field is required']" v-model="form.category" variant="outlined"

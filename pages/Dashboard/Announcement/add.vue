@@ -106,7 +106,7 @@ export default {
                                 label="Judul Pengumuman"></v-text-field>
                         </div>
                         <div class="mt-3">
-                            <v-textarea :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined" label="Deskripsi Pengumuman" clearable v-model="form.description"></v-textarea>
+                            <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined" label="Deskripsi Pengumuman" clearable v-model="form.description"></v-textarea>
                         </div>
                     </div>
                 </v-form>

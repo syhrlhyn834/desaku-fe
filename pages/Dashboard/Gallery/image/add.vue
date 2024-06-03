@@ -66,7 +66,7 @@ export default {
                 <h3 class="text-2xl font-medium mb-5">Tambah Gambar Galeri</h3>
                 <v-form ref="form">
                     <div>
-                        <v-textarea :rules="[v => !!v || 'Field is required']" rows="2" variant="outlined"
+                        <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="2" variant="outlined"
                             label="Deskripsi Gambar" clearable v-model="form.description"></v-textarea>
                     </div>
                 </v-form>

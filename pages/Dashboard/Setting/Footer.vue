@@ -99,11 +99,11 @@ export default {
         <div class="col-12">
             <div class="card">
                 <v-form ref="form">
-                    <v-textarea :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined"
+                    <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined"
                         label="Profil Desa" clearable v-model="form.profile"></v-textarea>
-                    <v-textarea :rules="[v => !!v || 'Field is required']" rows="2" variant="outlined"
+                    <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="2" variant="outlined"
                         label="Alamat Lengkap" clearable v-model="form.address"></v-textarea>
-                    <v-textarea :rules="[v => !!v || 'Field is required']" rows="2" variant="outlined"
+                    <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="2" variant="outlined"
                         label="Copyright" clearable v-model="form.copyright"></v-textarea>
                     <div class="mb-5 text-lg font-medium my-1">Sosial Media</div>
                     <div class="block">

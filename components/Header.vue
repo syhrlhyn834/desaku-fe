@@ -225,7 +225,7 @@ export default {
             <div :class="{ 'fixed top-0 z-50 animation': headerActive }"
                 class="py-4 px-[1rem] sm:px-[6rem] md:px-[3rem] lg:px-[10rem] xl:px-[14rem] w-full flex items-center bg-white/80 backdrop-blur-sm justify-between top-8">
                 <div class="flex cursor-pointer" @click="$router.push('/')">
-                    <img width="40" :src="headerData.logo" alt="">
+                    <v-img width="40" aspect-ratio="1" cover :lazy-src="headerData.logo" :src="headerData.logo" alt=""/>
                     <div class="ml-3 block font-semibold">
                         <div>
                             <span>{{ headerData.site_name }}</span>

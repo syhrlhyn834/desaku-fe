@@ -940,7 +940,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-f02fa32b.mjs').then((m) => m.default || m)
+    component: () => import('./add-02e9d6bc.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities-edit",
@@ -948,7 +948,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-39c89ae9.mjs').then((m) => m.default || m)
+    component: () => import('./edit-88b7e72b.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities",
@@ -996,7 +996,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-1fad4899.mjs').then((m) => m.default || m)
+    component: () => import('./add-238e16c8.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Announcement-edit",
@@ -1020,7 +1020,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-7ead0846.mjs').then((m) => m.default || m)
+    component: () => import('./add-4296ee57.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery-image-edit",
@@ -1028,7 +1028,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-f9b1a57b.mjs').then((m) => m.default || m)
+    component: () => import('./edit-3e83a628.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery",
@@ -1044,7 +1044,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-af0bd207.mjs').then((m) => m.default || m)
+    component: () => import('./add-9fc92237.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Jabatan-add",
@@ -1100,7 +1100,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-d0a4dfe9.mjs').then((m) => m.default || m)
+    component: () => import('./add-730b7c19.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-News-category-add",
@@ -1124,7 +1124,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-904b39bd.mjs').then((m) => m.default || m)
+    component: () => import('./edit-ab17fb68.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-News",
@@ -1164,7 +1164,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-56430735.mjs').then((m) => m.default || m)
+    component: () => import('./add-2746bced.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Potensi-Desa-category-add",
@@ -1188,7 +1188,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-07c5a7f7.mjs').then((m) => m.default || m)
+    component: () => import('./edit-2e262520.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Potensi-Desa",
@@ -1228,7 +1228,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./Footer-0de29556.mjs').then((m) => m.default || m)
+    component: () => import('./Footer-98aa7c22.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-Header",
@@ -1244,7 +1244,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-36f22a25.mjs').then((m) => m.default || m)
+    component: () => import('./add-21dc4524.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-HomepageImage",
@@ -18087,7 +18087,7 @@ const layouts = {
   "app-menu-item": () => import('./AppMenuItem-66160126.mjs').then((m) => m.default || m),
   "app-sidebar": () => import('./AppSidebar-eaed5dc7.mjs').then((m) => m.default || m),
   "app-topbar": () => import('./AppTopbar-c0ce5482.mjs').then((m) => m.default || m),
-  app: () => import('./app-a11f7101.mjs').then((m) => m.default || m),
+  app: () => import('./app-bd251897.mjs').then((m) => m.default || m),
   blank: () => import('./blank-0125dac0.mjs').then((m) => m.default || m),
   default: () => import('./default-d28b5407.mjs').then((m) => m.default || m)
 };

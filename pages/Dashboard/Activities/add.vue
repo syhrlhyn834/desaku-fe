@@ -86,7 +86,7 @@ export default {
                                 variant="outlined" hide-details="auto" label="Judul Kegiatan"></v-text-field>
                         </div>
                         <div class="mt-3">
-                            <v-textarea :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined"
+                            <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined"
                                 label="Deskripsi Kegiatan" clearable v-model="form.description"></v-textarea>
                         </div>
                     </div>
