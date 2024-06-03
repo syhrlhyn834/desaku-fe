@@ -142,8 +142,8 @@ export default {
             style="z-index: 9999;">
             <div class="block min-h-screen pb-10 px-3 py-4">
                 <div class="flex justify-between cursor-pointer border-b border-slate-200 pb-4">
-                    <div class="flex-none flex" @click="$router.push('/')">
-                        <img width="40" :src="headerData.logo" alt="">
+                    <div class="flex-none flex items-center" @click="$router.push('/')">
+                        <v-img width="40" aspect-ratio="1" cover :lazy-src="headerData.logo" :src="headerData.logo" alt=""/>
                         <div class="ml-3 block font-semibold">
                             <div>
                                 <span>{{ headerData.site_name }}</span>

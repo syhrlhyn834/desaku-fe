@@ -166,7 +166,7 @@ export default {
                                     </v-btn>
                                 </div>
                                 <div class="mt-3">
-                                    <span>mimes: jpeg,png,jpg | max: 6mb</span>
+                                    <span>mimes: jpeg,png,jpg | max: 1mb</span>
                                 </div>
                             </div>
                         </div>
