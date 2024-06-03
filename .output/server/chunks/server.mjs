@@ -940,7 +940,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-c134005d.mjs').then((m) => m.default || m)
+    component: () => import('./add-c8bd042a.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities-edit",
@@ -948,7 +948,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-3fe16e77.mjs').then((m) => m.default || m)
+    component: () => import('./edit-cb59faff.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities",
@@ -1020,7 +1020,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-bdf1d3b1.mjs').then((m) => m.default || m)
+    component: () => import('./add-f7f8b7b1.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery-image-edit",
@@ -1028,7 +1028,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-8a96a817.mjs').then((m) => m.default || m)
+    component: () => import('./edit-388fe1bd.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery",
@@ -1076,7 +1076,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-ff2faec6.mjs').then((m) => m.default || m)
+    component: () => import('./add-f32042a3.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Lembaga-edit",
@@ -1084,7 +1084,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-d094d94e.mjs').then((m) => m.default || m)
+    component: () => import('./edit-5b4ebcf9.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Lembaga",
@@ -1100,7 +1100,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-23860143.mjs').then((m) => m.default || m)
+    component: () => import('./add-c57a1785.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-News-category-add",
@@ -1124,7 +1124,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-fcac1393.mjs').then((m) => m.default || m)
+    component: () => import('./edit-5ccdbc1f.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-News",
@@ -1140,7 +1140,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-08c2a35f.mjs').then((m) => m.default || m)
+    component: () => import('./add-dab0b097.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Perangkat-Desa-edit",
@@ -1148,7 +1148,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-61739e41.mjs').then((m) => m.default || m)
+    component: () => import('./edit-4a0ef60d.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Perangkat-Desa",
@@ -1164,7 +1164,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-af30f1ae.mjs').then((m) => m.default || m)
+    component: () => import('./add-ebc58f7c.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Potensi-Desa-category-add",
@@ -1188,7 +1188,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-fd645eea.mjs').then((m) => m.default || m)
+    component: () => import('./edit-a4eeb9c9.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Potensi-Desa",
@@ -1236,7 +1236,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./Header-68289fd7.mjs').then((m) => m.default || m)
+    component: () => import('./Header-45652517.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-HomepageImage-add",
@@ -1244,7 +1244,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-693012a4.mjs').then((m) => m.default || m)
+    component: () => import('./add-5f27421b.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-HomepageImage",
