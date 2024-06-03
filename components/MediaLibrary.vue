@@ -27,19 +27,23 @@ async function onDrop(files) {
     formData.append("image", files[0]);
 
     loading.value = true
-    await $fetch(useRuntimeConfig().public.API_PUBLIC_URL + '/api/image', {
-        body: formData,
-        headers: {
-            Authorization: "Bearer " + useToken().token
-        },
-        method: "POST"
-    })
+    try {
+        await $fetch(useRuntimeConfig().public.API_PUBLIC_URL + '/api/image', {
+            body: formData,
+            headers: {
+                Authorization: "Bearer " + useToken().token
+            },
+            method: "POST"
+        })
 
-    setTimeout(async () => {
-        loading.value = false
-        await loadImages()
-        currentTab.value = 'listImage'
-    }, 1000)
+        setTimeout(async () => {
+            loading.value = false
+            await loadImages()
+            currentTab.value = 'listImage'
+        }, 1000)
+    } catch (err) {
+        this.toastError = true
+    }
 }
 
 async function removeImage() {
@@ -82,6 +86,14 @@ export default {
 }
 </script>
 <template>
+    <v-snackbar v-model="toastError" color="red" :timeout="3000">
+        Terjadi kesalahan saat mengupload gambar!
+        <template v-slot:actions>
+            <v-btn color="white" variant="text" @click="toastUnauthorized = false">
+                Tutup
+            </v-btn>
+        </template>
+    </v-snackbar>
     <v-dialog v-model="openModal" width="75%">
         <v-card height="auto" style="scrollbar-width: none">
             <template v-slot:title>
@@ -124,7 +136,8 @@ export default {
                                 </v-btn>
                             </div>
                         </div>
-                        <div :class="$vuetify.display.mobile ? 'mt-10' : 'mt-0'" class="w-full md:w-3/4 md:mt-1 px-3 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div :class="$vuetify.display.mobile ? 'mt-10' : 'mt-0'"
+                            class="w-full md:w-3/4 md:mt-1 px-3 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
                             <div @click="imageSelected = image"
                                 :class="{ 'border-4 border-[#10B981]': imageSelected == image }"
                                 class="relative rounded-lg cursor-pointer items-center flex" v-for="image in images">
