@@ -15,9 +15,15 @@ news.value = (await $fetch('/api/berita?limit=5')).data
             <div class="text-md md:text-xl font-semibold">
                 <span class="line-clamp-2">{{ news.title }}</span>
             </div>
-            <div class="text-md flex items-center font-medium mt-1">
-                <IconsDate />
-                <span class="text-sm md:text-md ml-1">{{ moment(news.created_at).format("LL") }}</span>
+            <div class="text-sm md:text-base block sm:flex items-center font-medium mt-2">
+                <div class="flex items-center">
+                    <IconsDate class="flex-none" />
+                    <span class="ml-1">{{ moment(news.created_at).format("LL") }}</span>
+                </div>
+                <div class="flex items-center sm:ml-2 max-[500px]:mt-1">
+                    <IconsTag class="flex-none" />
+                    <span class="ml-1">{{ news.name }}</span>
+                </div>
             </div>
             <div class="mt-2">
                 <span class="line-clamp-2 sm:line-clamp-3">{{ news.description }}</span>

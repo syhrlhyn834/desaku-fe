@@ -916,7 +916,7 @@ const _routes = [
     meta: __nuxt_page_meta$j || {},
     alias: (__nuxt_page_meta$j == null ? void 0 : __nuxt_page_meta$j.alias) || [],
     redirect: (__nuxt_page_meta$j == null ? void 0 : __nuxt_page_meta$j.redirect) || void 0,
-    component: () => import('./_id_-e17edf01.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-d6a1a2eb.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$i == null ? void 0 : __nuxt_page_meta$i.name) ?? "Berita-id",
@@ -924,7 +924,7 @@ const _routes = [
     meta: __nuxt_page_meta$i || {},
     alias: (__nuxt_page_meta$i == null ? void 0 : __nuxt_page_meta$i.alias) || [],
     redirect: (__nuxt_page_meta$i == null ? void 0 : __nuxt_page_meta$i.redirect) || void 0,
-    component: () => import('./_id_-93672758.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-9bab7412.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$h == null ? void 0 : __nuxt_page_meta$h.name) ?? "Berita",
@@ -932,7 +932,7 @@ const _routes = [
     meta: __nuxt_page_meta$h || {},
     alias: (__nuxt_page_meta$h == null ? void 0 : __nuxt_page_meta$h.alias) || [],
     redirect: (__nuxt_page_meta$h == null ? void 0 : __nuxt_page_meta$h.redirect) || void 0,
-    component: () => import('./index-bc6f79d9.mjs').then((m) => m.default || m)
+    component: () => import('./index-0fb7476e.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities-add",
@@ -1356,7 +1356,7 @@ const _routes = [
     meta: __nuxt_page_meta$7 || {},
     alias: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.alias) || [],
     redirect: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.redirect) || void 0,
-    component: () => import('./_id_-aff79ada.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-65983454.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.name) ?? "Potensi-Desa-id",
@@ -1364,7 +1364,7 @@ const _routes = [
     meta: __nuxt_page_meta$6 || {},
     alias: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.alias) || [],
     redirect: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.redirect) || void 0,
-    component: () => import('./_id_-9516c0d8.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-4beb80fa.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.name) ?? "Potensi-Desa",
@@ -1372,7 +1372,7 @@ const _routes = [
     meta: __nuxt_page_meta$5 || {},
     alias: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.alias) || [],
     redirect: (__nuxt_page_meta$5 == null ? void 0 : __nuxt_page_meta$5.redirect) || void 0,
-    component: () => import('./index-5967b593.mjs').then((m) => m.default || m)
+    component: () => import('./index-ca7ab9b6.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$4 == null ? void 0 : __nuxt_page_meta$4.name) ?? "Sejarah-Desa",
@@ -1412,7 +1412,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./index-041d2d66.mjs').then((m) => m.default || m)
+    component: () => import('./index-30f664fa.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -18087,7 +18087,7 @@ const layouts = {
   "app-menu-item": () => import('./AppMenuItem-66160126.mjs').then((m) => m.default || m),
   "app-sidebar": () => import('./AppSidebar-eaed5dc7.mjs').then((m) => m.default || m),
   "app-topbar": () => import('./AppTopbar-c0ce5482.mjs').then((m) => m.default || m),
-  app: () => import('./app-bd251897.mjs').then((m) => m.default || m),
+  app: () => import('./app-429b1afd.mjs').then((m) => m.default || m),
   blank: () => import('./blank-0125dac0.mjs').then((m) => m.default || m),
   default: () => import('./default-d28b5407.mjs').then((m) => m.default || m)
 };
