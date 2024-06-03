@@ -10,7 +10,7 @@ const page = ref(1)
 
 const { data, category_name, total } = await $fetch('/api/potensi-desa?limit=5&category=' + route.params.id)
 
-if (!total == 0) {
+if (total == 0) {
     throw createError({
         statusCode: 404,
         statusMessage: 'Page Not Found'

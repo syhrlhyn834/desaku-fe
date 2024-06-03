@@ -22,7 +22,7 @@ const index = defineEventHandler(async (event) => {
   for (let key in getQuery(event)) {
     query += `${key}=${getQuery(event)[key]}&`;
   }
-  return await $fetch(useRuntimeConfig().public.API_BASE_URL + "/api/potensi-category?" + query.slice(0, -1));
+  return await $fetch(useRuntimeConfig().public.API_BASE_URL + "/api/perangkat-desa?" + query.slice(0, -1));
 });
 
 export { index as default };

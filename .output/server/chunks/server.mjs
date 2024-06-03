@@ -1180,7 +1180,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-e2c0e452.mjs').then((m) => m.default || m)
+    component: () => import('./edit-c28ba316.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Potensi-Desa-edit",
@@ -1196,7 +1196,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-3feeabf2.mjs').then((m) => m.default || m)
+    component: () => import('./index-acc40e2c.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Profile-About",
@@ -1284,7 +1284,7 @@ const _routes = [
     meta: __nuxt_page_meta$g || {},
     alias: (__nuxt_page_meta$g == null ? void 0 : __nuxt_page_meta$g.alias) || [],
     redirect: (__nuxt_page_meta$g == null ? void 0 : __nuxt_page_meta$g.redirect) || void 0,
-    component: () => import('./Galeri-69e144f8.mjs').then((m) => m.default || m)
+    component: () => import('./Galeri-8942f2b6.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.name) ?? "Kegiatan-id",
@@ -1356,7 +1356,7 @@ const _routes = [
     meta: __nuxt_page_meta$7 || {},
     alias: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.alias) || [],
     redirect: (__nuxt_page_meta$7 == null ? void 0 : __nuxt_page_meta$7.redirect) || void 0,
-    component: () => import('./_id_-65983454.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-788f80fc.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$6 == null ? void 0 : __nuxt_page_meta$6.name) ?? "Potensi-Desa-id",
@@ -1412,7 +1412,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./index-30f664fa.mjs').then((m) => m.default || m)
+    component: () => import('./index-bcfb5d70.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {

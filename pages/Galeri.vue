@@ -51,14 +51,19 @@ useHead({
         <div class="pb-[1rem]">
             <h1 class="mb-2 font-semibold text-[#0088CC] text-2xl">Galeri Video</h1>
             <div class="grid grid-cols-1 md:grid-cols-3 md:gap-[2rem]">
-                <a class="w-full rounded-lg animate-fade" v-for="(video, key) in videos" :key="key" target="_blank" rel="noreferrer">
-                    <iframe class="my-6 rounded-lg shadow-sm" width="100%" height="245" loading="lazy" :src="video.url" title="YouTube video player"
-                        frameborder="0" allow="accelerometer; autoplay; web-share"
+                <a class="relative w-full rounded-lg animate-fade" v-for="(video, key) in videos" :key="key" target="_blank"
+                    rel="noreferrer">
+                    <iframe class="mt-6 rounded-t-lg shadow-sm" width="100%" height="245" loading="lazy" :src="video.url"
+                        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; web-share"
                         referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div
+                        class="rounded-b-lg py-3 px-2 font-medium text-base md:text-lg backdrop-blur-sm bg-white/30 shadow-sm border border-slate-100">
+                        <span class="line-clamp-1">{{ video.description }}</span>
+                    </div>
                 </a>
             </div>
-            <v-pagination :size="$vuetify.display.mobile ? 'small' : 'default'" class="mt-4 mb-6 md:mb-10" v-model="page"
-                @update:modelValue="changePage" :total-visible="5" :length="pageLength"></v-pagination>
+            <v-pagination :size="$vuetify.display.mobile ? 'small' : 'default'" class="mt-4 mb-6 md:mb-10"
+                v-model="page" @update:modelValue="changePage" :total-visible="5" :length="pageLength"></v-pagination>
         </div>
         <div class="pb-[6rem]">
             <h1 class="mb-8 font-semibold text-[#0088CC] text-2xl">Galeri Foto</h1>
@@ -68,9 +73,7 @@ useHead({
                     <v-img :lazy-src="image.url" class="w-full rounded-t-lg" height="300" :src="image.url" alt="" />
                     <div
                         class="rounded-b-lg py-3 px-2 font-medium text-base md:text-lg backdrop-blur-sm bg-white/30 shadow-sm border border-slate-100">
-                        <span v-if="image.description.length > 40 && $vuetify.display.mobile">{{
-                            image.description.slice(0, 40) }}...</span>
-                        <span v-else>{{ image.description }}</span>
+                        <span class="line-clamp-1">{{ image.description }}</span>
                     </div>
                 </a>
             </div>

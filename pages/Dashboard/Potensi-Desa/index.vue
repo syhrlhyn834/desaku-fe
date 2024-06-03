@@ -8,7 +8,9 @@ export default {
     data() {
         return {
             modalRemovePotensi: false,
+            modalRemovePotensiCategory: false,
             removedPotensiId: null,
+            removedPotensiCategoryId: null,
             data: null,
             potensiCategory: [],
             headers: [
@@ -52,6 +54,10 @@ export default {
             this.modalRemovePotensi = true
             this.removedPotensiId = id
         },
+        openModalRemoveKategoriPotensi(id) {
+            this.modalRemovePotensiCategory = true
+            this.removedPotensiCategoryId = id
+        },
         async removePotensi() {
             await $fetch(this.$config.public.API_PUBLIC_URL + '/api/potensi-desa/' + this.removedPotensiId, {
                 method: "DELETE",
@@ -62,6 +68,17 @@ export default {
 
             this.modalRemovePotensi = false
             await this.loadData()
+        },
+        async removeKategoriPotensi() {
+            await $fetch(this.$config.public.API_PUBLIC_URL + '/api/potensi-category/' + this.removedPotensiCategoryId, {
+                method: "DELETE",
+                headers: {
+                    Authorization: "Bearer " + useToken().token
+                },
+            })
+
+            await this.loadPotensiCategory()
+            this.modalRemovePotensiCategory = false
         },
     }
 }
@@ -93,6 +110,38 @@ export default {
             <template v-slot:actions>
                 <div class="w-full flex justify-end">
                     <v-btn variant="flat" @click="removePotensi" color="#FC4100"
+                        class="w-fit mt-6 text-white px-3 mx-1 mb-2 py-2 text-md">
+                        <span class="capitalize">Hapus</span>
+                    </v-btn>
+                </div>
+            </template>
+        </v-card>
+    </v-dialog>
+    <v-dialog v-model="modalRemovePotensiCategory" width="auto">
+        <v-card height="auto" style="scrollbar-width: none">
+            <template v-slot:title>
+                <div class="flex items-center justify-between">
+                    <div class="text-xl font-semibold">
+                        <span>Hapus Kategori Potensi Desa?</span>
+                    </div>
+                    <div @click="modalRemovePotensi = false" class="cursor-pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+                            <g fill="none" stroke="black" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10" />
+                                <path stroke-linecap="round" d="m14.5 9.5l-5 5m0-5l5 5" />
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </template>
+            <template v-slot:text>
+                <div>
+                    <span>Kategori Potensi Desa yang dihapus tidak bisa dikembalikan kembali.</span>
+                </div>
+            </template>
+            <template v-slot:actions>
+                <div class="w-full flex justify-end">
+                    <v-btn variant="flat" @click="removeKategoriPotensi" color="#FC4100"
                         class="w-fit mt-6 text-white px-3 mx-1 mb-2 py-2 text-md">
                         <span class="capitalize">Hapus</span>
                     </v-btn>
@@ -176,7 +225,7 @@ export default {
                     <template #bottom></template>
                     <template v-slot:item.actions="{ item }">
                         <div class="flex justify-end">
-                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" @click="$router.push('/dashboard/potensi-desa/edit?id=' + item.uuid)"
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" @click="$router.push('/dashboard/potensi-desa/category/edit?id=' + item.uuid)"
                                 class="cursor-pointer mx-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
@@ -185,7 +234,7 @@ export default {
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" class="cursor-pointer" @click="openModalRemovePotensi(item.uuid)">
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" class="cursor-pointer" @click="openModalRemoveKategoriPotensi(item.uuid)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
                                     <path fill="#212121"

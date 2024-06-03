@@ -1,6 +1,6 @@
 <script setup>
 useHead({
-    title: 'Edit Kategori Berita',
+    title: 'Edit Kategori Potensi',
 })
 </script>
 <script>
@@ -19,7 +19,7 @@ export default {
         }
     },
     async mounted() {
-        const data = await $fetch(this.$config.public.API_PUBLIC_URL + '/api/news-category/' + this.$route.query.id)
+        const data = await $fetch(this.$config.public.API_PUBLIC_URL + '/api/potensi-category/' + this.$route.query.id)
         this.form.name = data.name
     },
     methods: {
@@ -33,7 +33,7 @@ export default {
             this.loading = true
             this.form.slug = createSlug(this.form.name)
 
-            await $fetch(this.$config.public.API_PUBLIC_URL + '/api/news-category/' + this.$route.query.id, {
+            await $fetch(this.$config.public.API_PUBLIC_URL + '/api/potensi-category/' + this.$route.query.id, {
                 method: "PATCH",
                 headers: {
                     Authorization: "Bearer " + useToken().token
@@ -42,7 +42,7 @@ export default {
             })
 
             this.loading = false
-            this.$router.push('/dashboard/news')
+            this.$router.push('/dashboard/potensi-desa')
         },
         contentChange(v) {
             this.data = v
@@ -55,7 +55,7 @@ export default {
     <div class="grid animate-fade">
         <div class="col-12">
             <div class="card">
-                <h3 class="text-2xl font-medium mb-5">Ubah Kategori Berita</h3>
+                <h3 class="text-2xl font-medium mb-5">Ubah Kategori Potensi</h3>
                 <v-form ref="form">
                     <div>
                         <v-text-field :rules="[v => !!v || 'Field is required']" v-model="form.name" variant="outlined"

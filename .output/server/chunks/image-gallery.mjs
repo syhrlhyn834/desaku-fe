@@ -1,4 +1,4 @@
-import { defineEventHandler } from 'h3';
+import { defineEventHandler, getQuery } from 'h3';
 import { u as useRuntimeConfig } from './node-server.mjs';
 import 'node-fetch-native/polyfill';
 import 'node:http';
@@ -17,8 +17,12 @@ import 'node:fs';
 import 'node:url';
 import 'pathe';
 
-const imageGallery = defineEventHandler(async () => {
-  return await $fetch(useRuntimeConfig().public.API_BASE_URL + "/api/image-gallery");
+const imageGallery = defineEventHandler(async (event) => {
+  let query = "";
+  for (let key in getQuery(event)) {
+    query += `${key}=${getQuery(event)[key]}&`;
+  }
+  return await $fetch(useRuntimeConfig().public.API_BASE_URL + "/api/image-gallery?" + query.slice(0, -1));
 });
 
 export { imageGallery as default };
