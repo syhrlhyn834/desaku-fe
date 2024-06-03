@@ -3,6 +3,7 @@ import { ref, onMounted, defineEmits } from 'vue';
 import { useDropzone } from "vue3-dropzone";
 
 const loading = ref(false)
+const toastError = ref(false)
 const currentTab = ref("listImage")
 const images = ref([])
 const imageSelected = ref(null)
@@ -42,7 +43,8 @@ async function onDrop(files) {
             currentTab.value = 'listImage'
         }, 1000)
     } catch (err) {
-        this.toastError = true
+        loading.value = false
+        toastError.value = true
     }
 }
 
@@ -89,7 +91,7 @@ export default {
     <v-snackbar v-model="toastError" color="red" :timeout="3000">
         Terjadi kesalahan saat mengupload gambar!
         <template v-slot:actions>
-            <v-btn color="white" variant="text" @click="toastUnauthorized = false">
+            <v-btn color="white" variant="text" @click="toastError = false">
                 Tutup
             </v-btn>
         </template>
@@ -155,13 +157,16 @@ export default {
                         <div class="flex justify-center items-center h-[300px]" v-bind="getRootProps()">
                             <input v-bind="getInputProps()" />
                             <div>
-                                <p class="text-xl font-semibold">Drop files to upload</p>
+                                <p class="text-xl font-semibold text-center">Drop files to upload</p>
                                 <p class="w-fit mx-auto my-3">atau</p>
                                 <div class="flex justify-center">
                                     <v-btn color="#10B981">
                                         <span v-if="!loading">Upload Gambar</span>
                                         <Loader v-else />
                                     </v-btn>
+                                </div>
+                                <div class="mt-3">
+                                    <span>mimes: jpeg,png,jpg | max: 6mb</span>
                                 </div>
                             </div>
                         </div>
