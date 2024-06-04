@@ -5,6 +5,7 @@ useHead({
 </script>
 <script>
 import { createSlug } from "@/helpers/createSlug"
+import moment from "moment";
 
 export default {
     data() {
@@ -13,10 +14,16 @@ export default {
             renderRichEditor: false,
             openMediaLibrary: false,
             data: null,
+            today: new Date().toISOString().slice(0,10),
+            menuDate: false,
+            date: null,
+            moment: moment,
             form: {
                 title: null,
                 description: null,
                 content: null,
+                location: null,
+                date: null,
                 thumbnail: null,
             },
             loading: false,
@@ -27,6 +34,9 @@ export default {
         this.renderRichEditor = true
     },
     methods: {
+        formatDate() {
+            this.form.date = this.moment(this.date).format('YYYY-MM-DD')
+        },
         async addAnnouncement() {
             const { valid } = await this.$refs.form.validate()
 
@@ -89,9 +99,23 @@ export default {
                             <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined"
                                 label="Deskripsi Kegiatan" clearable v-model="form.description"></v-textarea>
                         </div>
+                        <div>
+                            <v-textarea auto-grow :rules="[v => !!v || 'Field is required']" rows="3" variant="outlined"
+                                label="Lokasi" clearable v-model="form.location"></v-textarea>
+                        </div>
+                        <div>
+                            <v-menu v-model="menuDate" transition="slide-y-transition">
+                                <template v-slot:activator="{ props }">
+                                    <v-text-field clearable v-bind="props" :rules="[v => !!v || 'Field is required']"
+                                        v-model="form.date" variant="outlined" hide-details="auto"
+                                        label="Tanggal Kegiatan"></v-text-field>
+                                </template>
+                                <v-date-picker v-model="date" @update:modelValue="formatDate" :min="today" label="Select a date"></v-date-picker>
+                            </v-menu>
+                        </div>
                     </div>
                 </v-form>
-                <div class="mb-3 text-lg font-medium my-1">Thumbnail</div>
+                <div class="mb-3 mt-5 text-lg font-medium my-1">Thumbnail</div>
                 <div class="relative w-fit" v-if="form.thumbnail">
                     <v-img :src="form.thumbnail" width="300" />
                     <div @click="form.thumbnail = null" class="absolute cursor-pointer right-3 top-3 z-50">

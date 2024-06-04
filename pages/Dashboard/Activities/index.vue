@@ -4,6 +4,8 @@ useHead({
 })
 </script>
 <script>
+import moment from 'moment';
+
 export default {
     data() {
         return {
@@ -11,6 +13,7 @@ export default {
             modalRemoveActivityCategory: false,
             removedActivityId: null,
             data: null,
+            moment: moment,
             form: {
                 title: null,
                 category: null,
@@ -19,8 +22,8 @@ export default {
             loadingData: false,
             headers: [
                 { title: 'Title', align: 'start', sortable: false, key: 'title', width: "300px" },
-                { title: 'Description', align: 'start', sortable: false, key: 'description', width: "300px" },
                 { title: 'Thumbnail', align: 'start', key: 'thumbnail' },
+                { title: 'Date', align: 'start', sortable: false, key: 'date', width: "200px" },
                 { title: 'Content', align: 'end', key: 'content' },
                 { title: 'Actions', align: 'center', key: 'actions', sortable: false },
             ],
@@ -111,8 +114,8 @@ export default {
                         <span v-if="value" v-html="value.slice(0, 100)"></span>
                         <span v-else>-</span>
                     </template>
-                    <template v-slot:item.description="{ value }">
-                        <span>{{ value.slice(0, 80) }}...</span>
+                    <template v-slot:item.date="{ value }">
+                        <span>{{ moment(value).format('DD MMM YYYY')  }}</span>
                     </template>
                     <template v-slot:item.actions="{ item }">
                         <div class="flex justify-center">

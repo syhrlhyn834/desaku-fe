@@ -6,6 +6,7 @@ const post = reactive({
     title: null,
     content: null,
     created_at: null,
+    location: null,
     created_by: null,
 })
 
@@ -15,6 +16,7 @@ post.title = data.title
 post.content = data.content
 post.created_at = data.created_at
 post.created_by = data.name
+post.location = data.location
 
 definePageMeta({
     layout: 'app'
@@ -41,8 +43,8 @@ definePageMeta({
                         <span class="ml-1">{{ moment(post.created_at).format("LL") }}</span>
                     </div>
                     <div class="flex items-center sm:ml-2">
-                        <IconsAuthor class="flex-none" />
-                        <span class="ml-1">Ditulis oleh {{ post.created_by }}</span>
+                        <IconsLocation class="flex-none" />
+                        <span class="ml-1">{{ post.location }}</span>
                     </div>
                 </div>
                 <div class="quill-content" v-html="post.content"></div>
