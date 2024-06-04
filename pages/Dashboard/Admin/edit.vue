@@ -69,7 +69,7 @@ export default {
                         <div class="col-span-1">
                             <v-text-field
                                 :rules="[v => !!v || 'Field is required', v => /.+@.+/.test(v) || 'Invalid Email address']"
-                                v-model="form.email" variant="outlined" hide-details="auto"
+                                v-model="form.email" readonly variant="outlined" hide-details="auto"
                                 label="Email"></v-text-field>
                         </div>
                     </div>
