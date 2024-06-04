@@ -908,7 +908,7 @@ const _routes = [
     meta: __nuxt_page_meta$k || {},
     alias: (__nuxt_page_meta$k == null ? void 0 : __nuxt_page_meta$k.alias) || [],
     redirect: (__nuxt_page_meta$k == null ? void 0 : __nuxt_page_meta$k.redirect) || void 0,
-    component: () => import('./Login-2812ef5b.mjs').then((m) => m.default || m)
+    component: () => import('./Login-9e27a31c.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$j == null ? void 0 : __nuxt_page_meta$j.name) ?? "Berita-Category-id",
@@ -940,7 +940,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-02e9d6bc.mjs').then((m) => m.default || m)
+    component: () => import('./add-7a87acb1.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities-edit",
@@ -948,7 +948,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-88b7e72b.mjs').then((m) => m.default || m)
+    component: () => import('./edit-01161227.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities",
@@ -956,7 +956,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-e9117e40.mjs').then((m) => m.default || m)
+    component: () => import('./index-2c07bdbe.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Admin-Profile",
@@ -988,7 +988,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-60fe03c2.mjs').then((m) => m.default || m)
+    component: () => import('./index-7aefa8f7.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Announcement-add",
@@ -1012,7 +1012,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-a4fa2104.mjs').then((m) => m.default || m)
+    component: () => import('./index-f8c6e08e.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery-image-add",
@@ -1020,7 +1020,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-4296ee57.mjs').then((m) => m.default || m)
+    component: () => import('./add-100b8113.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery-image-edit",
@@ -1028,7 +1028,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-3e83a628.mjs').then((m) => m.default || m)
+    component: () => import('./edit-4b504800.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery",
@@ -1036,7 +1036,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-ed2c1a3b.mjs').then((m) => m.default || m)
+    component: () => import('./index-df570efd.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery-video-add",
@@ -1068,7 +1068,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-dc9e4174.mjs').then((m) => m.default || m)
+    component: () => import('./index-7d359f8f.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Lembaga-add",
@@ -1076,7 +1076,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-f8dd4e69.mjs').then((m) => m.default || m)
+    component: () => import('./add-b16e7ae1.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Lembaga-edit",
@@ -1084,7 +1084,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-ab5d8d9a.mjs').then((m) => m.default || m)
+    component: () => import('./edit-8967b987.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Lembaga",
@@ -1092,7 +1092,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-d8893071.mjs').then((m) => m.default || m)
+    component: () => import('./index-b9a6e0a4.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-News-add",
@@ -1100,7 +1100,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-730b7c19.mjs').then((m) => m.default || m)
+    component: () => import('./add-20e23c9c.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-News-category-add",
@@ -1124,7 +1124,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-ab17fb68.mjs').then((m) => m.default || m)
+    component: () => import('./edit-85c4e8ab.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-News",
@@ -1132,7 +1132,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-1cdd6c74.mjs').then((m) => m.default || m)
+    component: () => import('./index-a218e32d.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Perangkat-Desa-add",
@@ -1140,7 +1140,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-c341467f.mjs').then((m) => m.default || m)
+    component: () => import('./add-ca35ed76.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Perangkat-Desa-edit",
@@ -1148,7 +1148,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-07c91133.mjs').then((m) => m.default || m)
+    component: () => import('./edit-67af037e.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Perangkat-Desa",
@@ -1156,7 +1156,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-6fab4298.mjs').then((m) => m.default || m)
+    component: () => import('./index-f45d3799.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Potensi-Desa-add",
@@ -1164,7 +1164,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-2746bced.mjs').then((m) => m.default || m)
+    component: () => import('./add-de156e42.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Potensi-Desa-category-add",
@@ -1188,7 +1188,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-2e262520.mjs').then((m) => m.default || m)
+    component: () => import('./edit-6c31ab55.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Potensi-Desa",
@@ -1196,7 +1196,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-acc40e2c.mjs').then((m) => m.default || m)
+    component: () => import('./index-f8f9ae9f.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Profile-About",
@@ -1236,7 +1236,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./Header-aea69f2c.mjs').then((m) => m.default || m)
+    component: () => import('./Header-432f9f03.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-HomepageImage-add",
@@ -1244,7 +1244,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-21dc4524.mjs').then((m) => m.default || m)
+    component: () => import('./add-4f8125c7.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-HomepageImage",
@@ -1252,7 +1252,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-b99fe788.mjs').then((m) => m.default || m)
+    component: () => import('./index-07ce6163.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Setting-Location",
