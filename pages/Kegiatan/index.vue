@@ -57,7 +57,7 @@ async function changePage() {
                                 <IconsDate class="flex-none" />
                                 <span class="ml-1">{{ moment(news.date).format("DD MMM YYYY") }}</span>
                             </div>
-                            <div class="flex items-center sm:ml-2">
+                            <div class="flex items-center sm:ml-2 max-[500px]:mt-1">
                                 <IconsLocation class="flex-none" />
                                 <span class="ml-1">{{ news.location }}</span>
                             </div>

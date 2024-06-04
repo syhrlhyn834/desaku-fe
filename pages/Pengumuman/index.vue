@@ -38,7 +38,7 @@ async function changePage() {
                 <span @click="navigateTo('/pengumuman')">Pengumuman</span>
             </template>
         </BreadCrumb>
-        <div class="grid grid-cols-1 md:grid-cols-6 md:gap-x-12">
+        <div class="grid grid-cols-1 md:grid-cols-6 md:gap-x-12 pb-6">
             <div class="block col-span-1 md:col-span-4 pb-6">
                 <div class="text-[#0088CC] border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
                     <span>Pengumuman</span>
@@ -54,7 +54,7 @@ async function changePage() {
                                 <IconsDate class="flex-none" />
                                 <span class="ml-1">{{ moment(announcement.created_at).format("LL") }}</span>
                             </div>
-                            <div class="flex items-center sm:ml-2">
+                            <div class="flex items-center sm:ml-2 max-[500px]:mt-1">
                                 <IconsAuthor class="flex-none" />
                                 <span class="ml-1">{{ announcement.name }}</span>
                             </div>
