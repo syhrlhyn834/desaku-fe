@@ -940,7 +940,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./add-7a87acb1.mjs').then((m) => m.default || m)
+    component: () => import('./add-fb43a791.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities-edit",
@@ -948,7 +948,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-01161227.mjs').then((m) => m.default || m)
+    component: () => import('./edit-75e75ee0.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Activities",
@@ -956,7 +956,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-2c07bdbe.mjs').then((m) => m.default || m)
+    component: () => import('./index-0e84c138.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Admin-Profile",
@@ -980,7 +980,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./edit-bf1a89c5.mjs').then((m) => m.default || m)
+    component: () => import('./edit-63e93840.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Admin",
@@ -988,7 +988,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-7aefa8f7.mjs').then((m) => m.default || m)
+    component: () => import('./index-08b04efa.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Announcement-add",
@@ -1036,7 +1036,7 @@ const _routes = [
     meta: {},
     alias: [],
     redirect: void 0,
-    component: () => import('./index-df570efd.mjs').then((m) => m.default || m)
+    component: () => import('./index-5b7e43b4.mjs').then((m) => m.default || m)
   },
   {
     name: "Dashboard-Gallery-video-add",
@@ -1284,7 +1284,7 @@ const _routes = [
     meta: __nuxt_page_meta$g || {},
     alias: (__nuxt_page_meta$g == null ? void 0 : __nuxt_page_meta$g.alias) || [],
     redirect: (__nuxt_page_meta$g == null ? void 0 : __nuxt_page_meta$g.redirect) || void 0,
-    component: () => import('./Galeri-8942f2b6.mjs').then((m) => m.default || m)
+    component: () => import('./Galeri-225c074c.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.name) ?? "Kegiatan-id",
@@ -1292,7 +1292,7 @@ const _routes = [
     meta: __nuxt_page_meta$f || {},
     alias: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.alias) || [],
     redirect: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.redirect) || void 0,
-    component: () => import('./_id_-20ff3321.mjs').then((m) => m.default || m)
+    component: () => import('./_id_-7bebb970.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.name) ?? "Kegiatan",
@@ -1300,7 +1300,7 @@ const _routes = [
     meta: __nuxt_page_meta$e || {},
     alias: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.alias) || [],
     redirect: (__nuxt_page_meta$e == null ? void 0 : __nuxt_page_meta$e.redirect) || void 0,
-    component: () => import('./index-1df479a1.mjs').then((m) => m.default || m)
+    component: () => import('./index-527eec7d.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$d == null ? void 0 : __nuxt_page_meta$d.name) ?? "Lembaga-Desa-id",
@@ -1412,7 +1412,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./index-bcfb5d70.mjs').then((m) => m.default || m)
+    component: () => import('./index-2790fa6a.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
@@ -4035,6 +4035,31 @@ function createInstance(options, locale) {
     instance.locale = options.locale[value] ?? value ?? instance.locale;
   });
   return instance;
+}
+function useDate() {
+  const options = inject$1(DateOptionsSymbol);
+  if (!options)
+    throw new Error("[Vuetify] Could not find injected date options");
+  const locale = useLocale();
+  return createInstance(options, locale);
+}
+function getWeek(adapter, value) {
+  const date2 = adapter.toJsDate(value);
+  let year = date2.getFullYear();
+  let d1w1 = new Date(year, 0, 1);
+  if (date2 < d1w1) {
+    year = year - 1;
+    d1w1 = new Date(year, 0, 1);
+  } else {
+    const tv = new Date(year + 1, 0, 1);
+    if (date2 >= tv) {
+      year = year + 1;
+      d1w1 = tv;
+    }
+  }
+  const diffTime = Math.abs(date2.getTime() - d1w1.getTime());
+  const diffDays = Math.ceil(diffTime / (1e3 * 60 * 60 * 24));
+  return Math.floor(diffDays / 7) + 1;
 }
 const DisplaySymbol = Symbol.for("vuetify:display");
 const defaultDisplayOptions = {
@@ -14594,6 +14619,57 @@ const VWindowItem = genericComponent()({
     };
   }
 });
+const makeVSheetProps = propsFactory({
+  color: String,
+  ...makeBorderProps(),
+  ...makeComponentProps(),
+  ...makeDimensionProps(),
+  ...makeElevationProps(),
+  ...makeLocationProps(),
+  ...makePositionProps(),
+  ...makeRoundedProps(),
+  ...makeTagProps(),
+  ...makeThemeProps()
+}, "VSheet");
+const VSheet = genericComponent()({
+  name: "VSheet",
+  props: makeVSheetProps(),
+  setup(props, _ref) {
+    let {
+      slots
+    } = _ref;
+    const {
+      themeClasses
+    } = provideTheme(props);
+    const {
+      backgroundColorClasses,
+      backgroundColorStyles
+    } = useBackgroundColor(toRef(props, "color"));
+    const {
+      borderClasses
+    } = useBorder(props);
+    const {
+      dimensionStyles
+    } = useDimension(props);
+    const {
+      elevationClasses
+    } = useElevation(props);
+    const {
+      locationStyles
+    } = useLocation(props);
+    const {
+      positionClasses
+    } = usePosition(props);
+    const {
+      roundedClasses
+    } = useRounded(props);
+    useRender(() => createVNode(props.tag, {
+      "class": ["v-sheet", themeClasses.value, backgroundColorClasses.value, borderClasses.value, elevationClasses.value, positionClasses.value, roundedClasses.value, props.class],
+      "style": [backgroundColorStyles.value, dimensionStyles.value, locationStyles.value, props.style]
+    }, slots));
+    return {};
+  }
+});
 const makeDataTableExpandProps = propsFactory({
   expandOnClick: Boolean,
   showExpand: Boolean,
@@ -16850,6 +16926,951 @@ const VDataTable = genericComponent()({
     return {};
   }
 });
+const VSpacer = createSimpleFunctional("v-spacer", "div", "VSpacer");
+const makeVDatePickerControlsProps = propsFactory({
+  active: {
+    type: [String, Array],
+    default: void 0
+  },
+  disabled: {
+    type: [Boolean, String, Array],
+    default: false
+  },
+  nextIcon: {
+    type: [String],
+    default: "$next"
+  },
+  prevIcon: {
+    type: [String],
+    default: "$prev"
+  },
+  modeIcon: {
+    type: [String],
+    default: "$subgroup"
+  },
+  text: String,
+  viewMode: {
+    type: String,
+    default: "month"
+  }
+}, "VDatePickerControls");
+const VDatePickerControls = genericComponent()({
+  name: "VDatePickerControls",
+  props: makeVDatePickerControlsProps(),
+  emits: {
+    "click:year": () => true,
+    "click:month": () => true,
+    "click:prev": () => true,
+    "click:next": () => true,
+    "click:text": () => true
+  },
+  setup(props, _ref) {
+    let {
+      emit
+    } = _ref;
+    const disableMonth = computed(() => {
+      return Array.isArray(props.disabled) ? props.disabled.includes("text") : !!props.disabled;
+    });
+    const disableYear = computed(() => {
+      return Array.isArray(props.disabled) ? props.disabled.includes("mode") : !!props.disabled;
+    });
+    const disablePrev = computed(() => {
+      return Array.isArray(props.disabled) ? props.disabled.includes("prev") : !!props.disabled;
+    });
+    const disableNext = computed(() => {
+      return Array.isArray(props.disabled) ? props.disabled.includes("next") : !!props.disabled;
+    });
+    function onClickPrev() {
+      emit("click:prev");
+    }
+    function onClickNext() {
+      emit("click:next");
+    }
+    function onClickYear() {
+      emit("click:year");
+    }
+    function onClickMonth() {
+      emit("click:month");
+    }
+    useRender(() => {
+      return createVNode("div", {
+        "class": ["v-date-picker-controls"]
+      }, [createVNode(VBtn, {
+        "class": "v-date-picker-controls__month-btn",
+        "disabled": disableMonth.value,
+        "text": props.text,
+        "variant": "text",
+        "rounded": true,
+        "onClick": onClickMonth
+      }, null), createVNode(VBtn, {
+        "key": "mode-btn",
+        "class": "v-date-picker-controls__mode-btn",
+        "disabled": disableYear.value,
+        "density": "comfortable",
+        "icon": props.modeIcon,
+        "variant": "text",
+        "onClick": onClickYear
+      }, null), createVNode(VSpacer, {
+        "key": "mode-spacer"
+      }, null), createVNode("div", {
+        "key": "month-buttons",
+        "class": "v-date-picker-controls__month"
+      }, [createVNode(VBtn, {
+        "disabled": disablePrev.value,
+        "icon": props.prevIcon,
+        "variant": "text",
+        "onClick": onClickPrev
+      }, null), createVNode(VBtn, {
+        "disabled": disableNext.value,
+        "icon": props.nextIcon,
+        "variant": "text",
+        "onClick": onClickNext
+      }, null)])]);
+    });
+    return {};
+  }
+});
+const makeVDatePickerHeaderProps = propsFactory({
+  appendIcon: String,
+  color: String,
+  header: String,
+  transition: String,
+  onClick: EventProp()
+}, "VDatePickerHeader");
+const VDatePickerHeader = genericComponent()({
+  name: "VDatePickerHeader",
+  props: makeVDatePickerHeaderProps(),
+  emits: {
+    click: () => true,
+    "click:append": () => true
+  },
+  setup(props, _ref) {
+    let {
+      emit,
+      slots
+    } = _ref;
+    const {
+      backgroundColorClasses,
+      backgroundColorStyles
+    } = useBackgroundColor(props, "color");
+    function onClick() {
+      emit("click");
+    }
+    function onClickAppend() {
+      emit("click:append");
+    }
+    useRender(() => {
+      const hasContent = !!(slots.default || props.header);
+      const hasAppend = !!(slots.append || props.appendIcon);
+      return createVNode("div", {
+        "class": ["v-date-picker-header", {
+          "v-date-picker-header--clickable": !!props.onClick
+        }, backgroundColorClasses.value],
+        "style": backgroundColorStyles.value,
+        "onClick": onClick
+      }, [slots.prepend && createVNode("div", {
+        "key": "prepend",
+        "class": "v-date-picker-header__prepend"
+      }, [slots.prepend()]), hasContent && createVNode(MaybeTransition, {
+        "key": "content",
+        "name": props.transition
+      }, {
+        default: () => {
+          var _a;
+          return [createVNode("div", {
+            "key": props.header,
+            "class": "v-date-picker-header__content"
+          }, [((_a = slots.default) == null ? void 0 : _a.call(slots)) ?? props.header])];
+        }
+      }), hasAppend && createVNode("div", {
+        "class": "v-date-picker-header__append"
+      }, [!slots.append ? createVNode(VBtn, {
+        "key": "append-btn",
+        "icon": props.appendIcon,
+        "variant": "text",
+        "onClick": onClickAppend
+      }, null) : createVNode(VDefaultsProvider, {
+        "key": "append-defaults",
+        "disabled": !props.appendIcon,
+        "defaults": {
+          VBtn: {
+            icon: props.appendIcon,
+            variant: "text"
+          }
+        }
+      }, {
+        default: () => {
+          var _a;
+          return [(_a = slots.append) == null ? void 0 : _a.call(slots)];
+        }
+      })])]);
+    });
+    return {};
+  }
+});
+const makeCalendarProps = propsFactory({
+  allowedDates: [Array, Function],
+  disabled: Boolean,
+  displayValue: null,
+  modelValue: Array,
+  month: [Number, String],
+  max: null,
+  min: null,
+  showAdjacentMonths: Boolean,
+  year: [Number, String],
+  weekdays: {
+    type: Array,
+    default: () => [0, 1, 2, 3, 4, 5, 6]
+  },
+  weeksInMonth: {
+    type: String,
+    default: "dynamic"
+  }
+}, "calendar");
+function useCalendar(props) {
+  const adapter = useDate();
+  const model = useProxiedModel(props, "modelValue", [], (v) => wrapInArray(v));
+  const displayValue = computed(() => {
+    if (props.displayValue)
+      return adapter.date(props.displayValue);
+    if (model.value.length > 0)
+      return adapter.date(model.value[0]);
+    if (props.min)
+      return adapter.date(props.min);
+    if (Array.isArray(props.allowedDates))
+      return adapter.date(props.allowedDates[0]);
+    return adapter.date();
+  });
+  const year = useProxiedModel(props, "year", void 0, (v) => {
+    const value = v != null ? Number(v) : adapter.getYear(displayValue.value);
+    return adapter.startOfYear(adapter.setYear(adapter.date(), value));
+  }, (v) => adapter.getYear(v));
+  const month = useProxiedModel(props, "month", void 0, (v) => {
+    const value = v != null ? Number(v) : adapter.getMonth(displayValue.value);
+    const date2 = adapter.setYear(adapter.startOfMonth(adapter.date()), adapter.getYear(year.value));
+    return adapter.setMonth(date2, value);
+  }, (v) => adapter.getMonth(v));
+  const weeksInMonth = computed(() => {
+    const weeks = adapter.getWeekArray(month.value);
+    const days = weeks.flat();
+    const daysInMonth2 = 6 * 7;
+    if (props.weeksInMonth === "static" && days.length < daysInMonth2) {
+      const lastDay = days[days.length - 1];
+      let week = [];
+      for (let day = 1; day <= daysInMonth2 - days.length; day++) {
+        week.push(adapter.addDays(lastDay, day));
+        if (day % 7 === 0) {
+          weeks.push(week);
+          week = [];
+        }
+      }
+    }
+    return weeks;
+  });
+  function genDays(days, today) {
+    return days.filter((date2) => {
+      return props.weekdays.includes(adapter.toJsDate(date2).getDay());
+    }).map((date2, index) => {
+      const isoDate = adapter.toISO(date2);
+      const isAdjacent = !adapter.isSameMonth(date2, month.value);
+      const isStart = adapter.isSameDay(date2, adapter.startOfMonth(month.value));
+      const isEnd = adapter.isSameDay(date2, adapter.endOfMonth(month.value));
+      const isSame = adapter.isSameDay(date2, month.value);
+      return {
+        date: date2,
+        isoDate,
+        formatted: adapter.format(date2, "keyboardDate"),
+        year: adapter.getYear(date2),
+        month: adapter.getMonth(date2),
+        isDisabled: isDisabled(date2),
+        isWeekStart: index % 7 === 0,
+        isWeekEnd: index % 7 === 6,
+        isToday: adapter.isSameDay(date2, today),
+        isAdjacent,
+        isHidden: isAdjacent && !props.showAdjacentMonths,
+        isStart,
+        isSelected: model.value.some((value) => adapter.isSameDay(date2, value)),
+        isEnd,
+        isSame,
+        localized: adapter.format(date2, "dayOfMonth")
+      };
+    });
+  }
+  const daysInWeek = computed(() => {
+    const lastDay = adapter.startOfWeek(displayValue.value);
+    const week = [];
+    for (let day = 0; day <= 6; day++) {
+      week.push(adapter.addDays(lastDay, day));
+    }
+    const today = adapter.date();
+    return genDays(week, today);
+  });
+  const daysInMonth = computed(() => {
+    const days = weeksInMonth.value.flat();
+    const today = adapter.date();
+    return genDays(days, today);
+  });
+  const weekNumbers = computed(() => {
+    return weeksInMonth.value.map((week) => {
+      return week.length ? getWeek(adapter, week[0]) : null;
+    });
+  });
+  function isDisabled(value) {
+    if (props.disabled)
+      return true;
+    const date2 = adapter.date(value);
+    if (props.min && adapter.isAfter(adapter.date(props.min), date2))
+      return true;
+    if (props.max && adapter.isAfter(date2, adapter.date(props.max)))
+      return true;
+    if (Array.isArray(props.allowedDates) && props.allowedDates.length > 0) {
+      return !props.allowedDates.some((d) => adapter.isSameDay(adapter.date(d), date2));
+    }
+    if (typeof props.allowedDates === "function") {
+      return !props.allowedDates(date2);
+    }
+    return false;
+  }
+  return {
+    displayValue,
+    daysInMonth,
+    daysInWeek,
+    genDays,
+    model,
+    weeksInMonth,
+    weekNumbers
+  };
+}
+const makeVDatePickerMonthProps = propsFactory({
+  color: String,
+  hideWeekdays: Boolean,
+  multiple: [Boolean, Number, String],
+  showWeek: Boolean,
+  transition: {
+    type: String,
+    default: "picker-transition"
+  },
+  reverseTransition: {
+    type: String,
+    default: "picker-reverse-transition"
+  },
+  ...makeCalendarProps()
+}, "VDatePickerMonth");
+const VDatePickerMonth = genericComponent()({
+  name: "VDatePickerMonth",
+  props: makeVDatePickerMonthProps(),
+  emits: {
+    "update:modelValue": (date2) => true,
+    "update:month": (date2) => true,
+    "update:year": (date2) => true
+  },
+  setup(props, _ref) {
+    let {
+      emit,
+      slots
+    } = _ref;
+    const daysRef = ref();
+    const {
+      daysInMonth,
+      model,
+      weekNumbers
+    } = useCalendar(props);
+    const adapter = useDate();
+    const rangeStart = shallowRef();
+    const rangeStop = shallowRef();
+    const isReverse = shallowRef(false);
+    const transition = computed(() => {
+      return !isReverse.value ? props.transition : props.reverseTransition;
+    });
+    if (props.multiple === "range" && model.value.length > 0) {
+      rangeStart.value = model.value[0];
+      if (model.value.length > 1) {
+        rangeStop.value = model.value[model.value.length - 1];
+      }
+    }
+    const atMax = computed(() => {
+      const max = ["number", "string"].includes(typeof props.multiple) ? Number(props.multiple) : Infinity;
+      return model.value.length >= max;
+    });
+    watch(daysInMonth, (val, oldVal) => {
+      if (!oldVal)
+        return;
+      isReverse.value = adapter.isBefore(val[0].date, oldVal[0].date);
+    });
+    function onRangeClick(value) {
+      const _value = adapter.startOfDay(value);
+      if (!rangeStart.value) {
+        rangeStart.value = _value;
+        model.value = [rangeStart.value];
+      } else if (!rangeStop.value) {
+        if (adapter.isSameDay(_value, rangeStart.value)) {
+          rangeStart.value = void 0;
+          model.value = [];
+          return;
+        } else if (adapter.isBefore(_value, rangeStart.value)) {
+          rangeStop.value = adapter.endOfDay(rangeStart.value);
+          rangeStart.value = _value;
+        } else {
+          rangeStop.value = adapter.endOfDay(_value);
+        }
+        const diff = adapter.getDiff(rangeStop.value, rangeStart.value, "days");
+        const datesInRange = [rangeStart.value];
+        for (let i = 1; i < diff; i++) {
+          const nextDate = adapter.addDays(rangeStart.value, i);
+          datesInRange.push(nextDate);
+        }
+        datesInRange.push(rangeStop.value);
+        model.value = datesInRange;
+      } else {
+        rangeStart.value = value;
+        rangeStop.value = void 0;
+        model.value = [rangeStart.value];
+      }
+    }
+    function onMultipleClick(value) {
+      const index = model.value.findIndex((selection) => adapter.isSameDay(selection, value));
+      if (index === -1) {
+        model.value = [...model.value, value];
+      } else {
+        const value2 = [...model.value];
+        value2.splice(index, 1);
+        model.value = value2;
+      }
+    }
+    function onClick(value) {
+      if (props.multiple === "range") {
+        onRangeClick(value);
+      } else if (props.multiple) {
+        onMultipleClick(value);
+      } else {
+        model.value = [value];
+      }
+    }
+    return () => createVNode("div", {
+      "class": "v-date-picker-month"
+    }, [props.showWeek && createVNode("div", {
+      "key": "weeks",
+      "class": "v-date-picker-month__weeks"
+    }, [!props.hideWeekdays && createVNode("div", {
+      "key": "hide-week-days",
+      "class": "v-date-picker-month__day"
+    }, [createTextVNode(" ")]), weekNumbers.value.map((week) => createVNode("div", {
+      "class": ["v-date-picker-month__day", "v-date-picker-month__day--adjacent"]
+    }, [week]))]), createVNode(MaybeTransition, {
+      "name": transition.value
+    }, {
+      default: () => {
+        var _a;
+        return [createVNode("div", {
+          "ref": daysRef,
+          "key": (_a = daysInMonth.value[0].date) == null ? void 0 : _a.toString(),
+          "class": "v-date-picker-month__days"
+        }, [!props.hideWeekdays && adapter.getWeekdays().map((weekDay) => createVNode("div", {
+          "class": ["v-date-picker-month__day", "v-date-picker-month__weekday"]
+        }, [weekDay])), daysInMonth.value.map((item, i) => {
+          const slotProps = {
+            props: {
+              onClick: () => onClick(item.date)
+            },
+            item,
+            i
+          };
+          if (atMax.value && !item.isSelected) {
+            item.isDisabled = true;
+          }
+          return createVNode("div", {
+            "class": ["v-date-picker-month__day", {
+              "v-date-picker-month__day--adjacent": item.isAdjacent,
+              "v-date-picker-month__day--hide-adjacent": item.isHidden,
+              "v-date-picker-month__day--selected": item.isSelected,
+              "v-date-picker-month__day--week-end": item.isWeekEnd,
+              "v-date-picker-month__day--week-start": item.isWeekStart
+            }],
+            "data-v-date": !item.isDisabled ? item.isoDate : void 0
+          }, [(props.showAdjacentMonths || !item.isAdjacent) && createVNode(VDefaultsProvider, {
+            "defaults": {
+              VBtn: {
+                class: "v-date-picker-month__day-btn",
+                color: (item.isSelected || item.isToday) && !item.isDisabled ? props.color : void 0,
+                disabled: item.isDisabled,
+                icon: true,
+                ripple: false,
+                text: item.localized,
+                variant: item.isDisabled ? item.isToday ? "outlined" : "text" : item.isToday && !item.isSelected ? "outlined" : "flat",
+                onClick: () => onClick(item.date)
+              }
+            }
+          }, {
+            default: () => {
+              var _a2;
+              return [((_a2 = slots.day) == null ? void 0 : _a2.call(slots, slotProps)) ?? createVNode(VBtn, slotProps.props, null)];
+            }
+          })]);
+        })])];
+      }
+    })]);
+  }
+});
+const makeVDatePickerMonthsProps = propsFactory({
+  color: String,
+  height: [String, Number],
+  modelValue: Number
+}, "VDatePickerMonths");
+const VDatePickerMonths = genericComponent()({
+  name: "VDatePickerMonths",
+  props: makeVDatePickerMonthsProps(),
+  emits: {
+    "update:modelValue": (date2) => true
+  },
+  setup(props, _ref) {
+    let {
+      emit,
+      slots
+    } = _ref;
+    const adapter = useDate();
+    const model = useProxiedModel(props, "modelValue");
+    const months = computed(() => {
+      let date2 = adapter.startOfYear(adapter.date());
+      return createRange(12).map((i) => {
+        const text = adapter.format(date2, "monthShort");
+        date2 = adapter.getNextMonth(date2);
+        return {
+          text,
+          value: i
+        };
+      });
+    });
+    watchEffect(() => {
+      model.value = model.value ?? adapter.getMonth(adapter.date());
+    });
+    useRender(() => createVNode("div", {
+      "class": "v-date-picker-months",
+      "style": {
+        height: convertToUnit(props.height)
+      }
+    }, [createVNode("div", {
+      "class": "v-date-picker-months__content"
+    }, [months.value.map((month, i) => {
+      var _a;
+      const btnProps = {
+        active: model.value === i,
+        color: model.value === i ? props.color : void 0,
+        rounded: true,
+        text: month.text,
+        variant: model.value === month.value ? "flat" : "text",
+        onClick: () => onClick(i)
+      };
+      function onClick(i2) {
+        if (model.value === i2) {
+          emit("update:modelValue", model.value);
+          return;
+        }
+        model.value = i2;
+      }
+      return ((_a = slots.month) == null ? void 0 : _a.call(slots, {
+        month,
+        i,
+        props: btnProps
+      })) ?? createVNode(VBtn, mergeProps({
+        "key": "month"
+      }, btnProps), null);
+    })])]));
+    return {};
+  }
+});
+const makeVDatePickerYearsProps = propsFactory({
+  color: String,
+  height: [String, Number],
+  min: null,
+  max: null,
+  modelValue: Number
+}, "VDatePickerYears");
+const VDatePickerYears = genericComponent()({
+  name: "VDatePickerYears",
+  props: makeVDatePickerYearsProps(),
+  emits: {
+    "update:modelValue": (year) => true
+  },
+  setup(props, _ref) {
+    let {
+      emit,
+      slots
+    } = _ref;
+    const adapter = useDate();
+    const model = useProxiedModel(props, "modelValue");
+    const years = computed(() => {
+      const year = adapter.getYear(adapter.date());
+      let min = year - 100;
+      let max = year + 52;
+      if (props.min) {
+        min = adapter.getYear(adapter.date(props.min));
+      }
+      if (props.max) {
+        max = adapter.getYear(adapter.date(props.max));
+      }
+      let date2 = adapter.startOfYear(adapter.date());
+      date2 = adapter.setYear(date2, min);
+      return createRange(max - min + 1, min).map((i) => {
+        const text = adapter.format(date2, "year");
+        date2 = adapter.setYear(date2, adapter.getYear(date2) + 1);
+        return {
+          text,
+          value: i
+        };
+      });
+    });
+    watchEffect(() => {
+      model.value = model.value ?? adapter.getYear(adapter.date());
+    });
+    const yearRef = ref();
+    useRender(() => createVNode("div", {
+      "class": "v-date-picker-years",
+      "style": {
+        height: convertToUnit(props.height)
+      }
+    }, [createVNode("div", {
+      "class": "v-date-picker-years__content"
+    }, [years.value.map((year, i) => {
+      var _a;
+      const btnProps = {
+        ref: model.value === year.value ? yearRef : void 0,
+        active: model.value === year.value,
+        color: model.value === year.value ? props.color : void 0,
+        rounded: true,
+        text: year.text,
+        variant: model.value === year.value ? "flat" : "text",
+        onClick: () => {
+          if (model.value === year.value) {
+            emit("update:modelValue", model.value);
+            return;
+          }
+          model.value = year.value;
+        }
+      };
+      return ((_a = slots.year) == null ? void 0 : _a.call(slots, {
+        year,
+        i,
+        props: btnProps
+      })) ?? createVNode(VBtn, mergeProps({
+        "key": "month"
+      }, btnProps), null);
+    })])]));
+    return {};
+  }
+});
+const VPickerTitle = createSimpleFunctional("v-picker-title");
+const makeVPickerProps = propsFactory({
+  bgColor: String,
+  landscape: Boolean,
+  title: String,
+  hideHeader: Boolean,
+  ...makeVSheetProps()
+}, "VPicker");
+const VPicker = genericComponent()({
+  name: "VPicker",
+  props: makeVPickerProps(),
+  setup(props, _ref) {
+    let {
+      slots
+    } = _ref;
+    const {
+      backgroundColorClasses,
+      backgroundColorStyles
+    } = useBackgroundColor(toRef(props, "color"));
+    useRender(() => {
+      const sheetProps = VSheet.filterProps(props);
+      const hasTitle = !!(props.title || slots.title);
+      return createVNode(VSheet, mergeProps(sheetProps, {
+        "color": props.bgColor,
+        "class": ["v-picker", {
+          "v-picker--landscape": props.landscape,
+          "v-picker--with-actions": !!slots.actions
+        }, props.class],
+        "style": props.style
+      }), {
+        default: () => {
+          var _a;
+          return [!props.hideHeader && createVNode("div", {
+            "key": "header",
+            "class": [backgroundColorClasses.value],
+            "style": [backgroundColorStyles.value]
+          }, [hasTitle && createVNode(VPickerTitle, {
+            "key": "picker-title"
+          }, {
+            default: () => {
+              var _a2;
+              return [((_a2 = slots.title) == null ? void 0 : _a2.call(slots)) ?? props.title];
+            }
+          }), slots.header && createVNode("div", {
+            "class": "v-picker__header"
+          }, [slots.header()])]), createVNode("div", {
+            "class": "v-picker__body"
+          }, [(_a = slots.default) == null ? void 0 : _a.call(slots)]), slots.actions && createVNode(VDefaultsProvider, {
+            "defaults": {
+              VBtn: {
+                slim: true,
+                variant: "text"
+              }
+            }
+          }, {
+            default: () => [createVNode("div", {
+              "class": "v-picker__actions"
+            }, [slots.actions()])]
+          })];
+        }
+      });
+    });
+    return {};
+  }
+});
+const makeVDatePickerProps = propsFactory({
+  // TODO: implement in v3.5
+  // calendarIcon: {
+  //   type: String,
+  //   default: '$calendar',
+  // },
+  // keyboardIcon: {
+  //   type: String,
+  //   default: '$edit',
+  // },
+  // inputMode: {
+  //   type: String as PropType<'calendar' | 'keyboard'>,
+  //   default: 'calendar',
+  // },
+  // inputText: {
+  //   type: String,
+  //   default: '$vuetify.datePicker.input.placeholder',
+  // },
+  // inputPlaceholder: {
+  //   type: String,
+  //   default: 'dd/mm/yyyy',
+  // },
+  header: {
+    type: String,
+    default: "$vuetify.datePicker.header"
+  },
+  ...makeVDatePickerControlsProps(),
+  ...makeVDatePickerMonthProps({
+    weeksInMonth: "static"
+  }),
+  ...omit(makeVDatePickerMonthsProps(), ["modelValue"]),
+  ...omit(makeVDatePickerYearsProps(), ["modelValue"]),
+  ...makeVPickerProps({
+    title: "$vuetify.datePicker.title"
+  }),
+  modelValue: null
+}, "VDatePicker");
+const VDatePicker = genericComponent()({
+  name: "VDatePicker",
+  props: makeVDatePickerProps(),
+  emits: {
+    "update:modelValue": (date2) => true,
+    "update:month": (date2) => true,
+    "update:year": (date2) => true,
+    // 'update:inputMode': (date: any) => true,
+    "update:viewMode": (date2) => true
+  },
+  setup(props, _ref) {
+    let {
+      emit,
+      slots
+    } = _ref;
+    const adapter = useDate();
+    const {
+      t
+    } = useLocale();
+    const model = useProxiedModel(props, "modelValue", void 0, (v) => wrapInArray(v), (v) => props.multiple ? v : v[0]);
+    const viewMode = useProxiedModel(props, "viewMode");
+    const internal = computed(() => {
+      var _a;
+      const value = adapter.date((_a = model.value) == null ? void 0 : _a[0]);
+      return value && adapter.isValid(value) ? value : adapter.date();
+    });
+    const month = ref(Number(props.month ?? adapter.getMonth(adapter.startOfMonth(internal.value))));
+    const year = ref(Number(props.year ?? adapter.getYear(adapter.startOfYear(adapter.setMonth(internal.value, month.value)))));
+    const isReversing = shallowRef(false);
+    const header = computed(() => {
+      if (props.multiple && model.value.length > 1) {
+        return t("$vuetify.datePicker.itemsSelected", model.value.length);
+      }
+      return model.value[0] && adapter.isValid(model.value[0]) ? adapter.format(adapter.date(model.value[0]), "normalDateWithWeekday") : t(props.header);
+    });
+    const text = computed(() => {
+      let date2 = adapter.date();
+      date2 = adapter.setDate(date2, 1);
+      date2 = adapter.setMonth(date2, month.value);
+      date2 = adapter.setYear(date2, year.value);
+      return adapter.format(date2, "monthAndYear");
+    });
+    const headerTransition = computed(() => `date-picker-header${isReversing.value ? "-reverse" : ""}-transition`);
+    const minDate = computed(() => {
+      const date2 = adapter.date(props.min);
+      return props.min && adapter.isValid(date2) ? date2 : null;
+    });
+    const maxDate = computed(() => {
+      const date2 = adapter.date(props.max);
+      return props.max && adapter.isValid(date2) ? date2 : null;
+    });
+    const disabled = computed(() => {
+      if (props.disabled)
+        return true;
+      const targets = [];
+      if (viewMode.value !== "month") {
+        targets.push(...["prev", "next"]);
+      } else {
+        let _date = adapter.date();
+        _date = adapter.setYear(_date, year.value);
+        _date = adapter.setMonth(_date, month.value);
+        if (minDate.value) {
+          const date2 = adapter.addDays(adapter.startOfMonth(_date), -1);
+          adapter.isAfter(minDate.value, date2) && targets.push("prev");
+        }
+        if (maxDate.value) {
+          const date2 = adapter.addDays(adapter.endOfMonth(_date), 1);
+          adapter.isAfter(date2, maxDate.value) && targets.push("next");
+        }
+      }
+      return targets;
+    });
+    function onClickNext() {
+      if (month.value < 11) {
+        month.value++;
+      } else {
+        year.value++;
+        month.value = 0;
+        onUpdateYear(year.value);
+      }
+      onUpdateMonth(month.value);
+    }
+    function onClickPrev() {
+      if (month.value > 0) {
+        month.value--;
+      } else {
+        year.value--;
+        month.value = 11;
+        onUpdateYear(year.value);
+      }
+      onUpdateMonth(month.value);
+    }
+    function onClickDate() {
+      viewMode.value = "month";
+    }
+    function onClickMonth() {
+      viewMode.value = viewMode.value === "months" ? "month" : "months";
+    }
+    function onClickYear() {
+      viewMode.value = viewMode.value === "year" ? "month" : "year";
+    }
+    function onUpdateMonth(value) {
+      if (viewMode.value === "months")
+        onClickMonth();
+      emit("update:month", value);
+    }
+    function onUpdateYear(value) {
+      if (viewMode.value === "year")
+        onClickYear();
+      emit("update:year", value);
+    }
+    watch(model, (val, oldVal) => {
+      const before = adapter.date(wrapInArray(oldVal)[oldVal.length - 1]);
+      const after = adapter.date(wrapInArray(val)[val.length - 1]);
+      const newMonth = adapter.getMonth(after);
+      const newYear = adapter.getYear(after);
+      if (newMonth !== month.value) {
+        month.value = newMonth;
+        onUpdateMonth(month.value);
+      }
+      if (newYear !== year.value) {
+        year.value = newYear;
+        onUpdateYear(year.value);
+      }
+      isReversing.value = adapter.isBefore(before, after);
+    });
+    useRender(() => {
+      const pickerProps = VPicker.filterProps(props);
+      const datePickerControlsProps = VDatePickerControls.filterProps(props);
+      const datePickerHeaderProps = VDatePickerHeader.filterProps(props);
+      const datePickerMonthProps = VDatePickerMonth.filterProps(props);
+      const datePickerMonthsProps = omit(VDatePickerMonths.filterProps(props), ["modelValue"]);
+      const datePickerYearsProps = omit(VDatePickerYears.filterProps(props), ["modelValue"]);
+      const headerProps = {
+        header: header.value,
+        transition: headerTransition.value
+      };
+      return createVNode(VPicker, mergeProps(pickerProps, {
+        "class": ["v-date-picker", `v-date-picker--${viewMode.value}`, {
+          "v-date-picker--show-week": props.showWeek
+        }, props.class],
+        "style": props.style
+      }), {
+        title: () => {
+          var _a;
+          return ((_a = slots.title) == null ? void 0 : _a.call(slots)) ?? createVNode("div", {
+            "class": "v-date-picker__title"
+          }, [t(props.title)]);
+        },
+        header: () => slots.header ? createVNode(VDefaultsProvider, {
+          "defaults": {
+            VDatePickerHeader: {
+              ...headerProps
+            }
+          }
+        }, {
+          default: () => {
+            var _a;
+            return [(_a = slots.header) == null ? void 0 : _a.call(slots, headerProps)];
+          }
+        }) : createVNode(VDatePickerHeader, mergeProps({
+          "key": "header"
+        }, datePickerHeaderProps, headerProps, {
+          "onClick": viewMode.value !== "month" ? onClickDate : void 0
+        }), {
+          ...slots,
+          default: void 0
+        }),
+        default: () => createVNode(Fragment$1, null, [createVNode(VDatePickerControls, mergeProps(datePickerControlsProps, {
+          "disabled": disabled.value,
+          "text": text.value,
+          "onClick:next": onClickNext,
+          "onClick:prev": onClickPrev,
+          "onClick:month": onClickMonth,
+          "onClick:year": onClickYear
+        }), null), createVNode(VFadeTransition, {
+          "hideOnLeave": true
+        }, {
+          default: () => [viewMode.value === "months" ? createVNode(VDatePickerMonths, mergeProps({
+            "key": "date-picker-months"
+          }, datePickerMonthsProps, {
+            "modelValue": month.value,
+            "onUpdate:modelValue": [($event) => month.value = $event, onUpdateMonth],
+            "min": minDate.value,
+            "max": maxDate.value
+          }), null) : viewMode.value === "year" ? createVNode(VDatePickerYears, mergeProps({
+            "key": "date-picker-years"
+          }, datePickerYearsProps, {
+            "modelValue": year.value,
+            "onUpdate:modelValue": [($event) => year.value = $event, onUpdateYear],
+            "min": minDate.value,
+            "max": maxDate.value
+          }), null) : createVNode(VDatePickerMonth, mergeProps({
+            "key": "date-picker-month"
+          }, datePickerMonthProps, {
+            "modelValue": model.value,
+            "onUpdate:modelValue": ($event) => model.value = $event,
+            "month": month.value,
+            "onUpdate:month": [($event) => month.value = $event, onUpdateMonth],
+            "year": year.value,
+            "onUpdate:year": [($event) => year.value = $event, onUpdateYear],
+            "min": minDate.value,
+            "max": maxDate.value
+          }), null)]
+        })]),
+        actions: slots.actions
+      });
+    });
+    return {};
+  }
+});
 const makeVFormProps = propsFactory({
   ...makeComponentProps(),
   ...makeFormProps()
@@ -18048,7 +19069,8 @@ const vuetify_8NhHJigKc1 = /* @__PURE__ */ defineNuxtPlugin((nuxtApp) => {
       VImg,
       VPagination,
       VProgressCircular,
-      VBreadcrumbs
+      VBreadcrumbs,
+      VDatePicker
     },
     directives,
     icons: {
@@ -18083,13 +19105,13 @@ const _wrapIf = (component, props, slots) => {
   return { default: () => props ? h(component, props === true ? {} : props, slots) : h(Fragment, {}, slots) };
 };
 const layouts = {
-  "app-layout": () => import('./AppLayout-7aee6bc6.mjs').then((m) => m.default || m),
+  "app-layout": () => import('./AppLayout-04db710b.mjs').then((m) => m.default || m),
   "app-menu-item": () => import('./AppMenuItem-66160126.mjs').then((m) => m.default || m),
-  "app-sidebar": () => import('./AppSidebar-eaed5dc7.mjs').then((m) => m.default || m),
+  "app-sidebar": () => import('./AppSidebar-03398e8d.mjs').then((m) => m.default || m),
   "app-topbar": () => import('./AppTopbar-c0ce5482.mjs').then((m) => m.default || m),
   app: () => import('./app-429b1afd.mjs').then((m) => m.default || m),
   blank: () => import('./blank-0125dac0.mjs').then((m) => m.default || m),
-  default: () => import('./default-d28b5407.mjs').then((m) => m.default || m)
+  default: () => import('./default-643f7b10.mjs').then((m) => m.default || m)
 };
 const LayoutLoader = /* @__PURE__ */ defineComponent$1({
   name: "LayoutLoader",
