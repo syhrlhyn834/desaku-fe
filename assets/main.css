@@ -53,6 +53,9 @@ ol {
     font-size: 16px;
 }
 
+.v-data-table-footer__items-per-page {
+    display: none !important;
+}
 
 a {
     color: #0088CC;

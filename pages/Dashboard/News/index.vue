@@ -176,8 +176,7 @@ export default {
     <div class="grid animate-fade mb-6">
         <div class="col-12">
             <div class="card">
-                <v-data-table items-per-page="-1" :loading="loadingData" :headers="headers" :items="items" item-key="name">
-                    <template #bottom></template>
+                <v-data-table items-per-page="10" :loading="loadingData" :headers="headers" :items="items" item-key="name">
                     <template v-slot:item.description="{ value }">
                         <span v-html="value.slice(0, 60)"></span>...
                     </template>
@@ -228,8 +227,7 @@ export default {
     <div class="grid animate-fade mb-6">
         <div class="col-12">
             <div class="card">
-                <v-data-table items-per-page="-1" :headers="headersCategory" :items="itemsCategory" item-key="name">
-                    <template #bottom></template>
+                <v-data-table :headers="headersCategory" :items="itemsCategory" item-key="name">
                     <template v-slot:item.content="{ value }">
                         <span v-html="value.slice(0, 100)"></span>
                     </template>

@@ -163,7 +163,7 @@ export default {
         <div class="col-12">
             <div class="card">
                 <v-data-table :loading="loadingData" :headers="headers" :items="items" item-key="name">
-                    <template #bottom></template>
+    
                     <template v-slot:item.content="{ value }">
                         <span v-if="value" v-html="value.slice(0, 100)"></span>
                         <span v-else>-</span>
@@ -222,7 +222,7 @@ export default {
             <div class="card">
                 <v-data-table :loading="loadingCategory" :headers="headersCategory" :items="potensiCategory"
                     item-key="name">
-                    <template #bottom></template>
+    
                     <template v-slot:item.actions="{ item }">
                         <div class="flex justify-end">
                             <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" @click="$router.push('/dashboard/potensi-desa/category/edit?id=' + item.uuid)"

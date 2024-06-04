@@ -162,7 +162,6 @@ export default {
         <div class="col-12">
             <div class="card">
                 <v-data-table :loading="loadingImage" :headers="headersImages" :items="images" item-key="name">
-                    <template #bottom></template>
                     <template v-slot:item.url="{ value }">
                         <v-img :src="value" width="100" height="100"></v-img>
                     </template>
@@ -206,7 +205,6 @@ export default {
         <div class="col-12">
             <div class="card">
                 <v-data-table :loading="loadingVideo" :headers="headersVideos" :items="videos" item-key="name">
-                    <template #bottom></template>
                     <template v-slot:item.url="{ value }">
                         <a target="_blank" :href="value">{{ value }}</a>
                     </template>
