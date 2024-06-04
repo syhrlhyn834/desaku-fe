@@ -6,7 +6,8 @@ const lightbox = ref(null)
 const images = ref([])
 const videos = ref([])
 const page = ref(1)
-const pageLength = ref(0)
+const pageLengthVideo = ref(0)
+const pageLengthImage = ref(0)
 
 onMounted(async () => {
     await nextTick(() => {
@@ -21,15 +22,29 @@ onMounted(async () => {
     })
 })
 
-images.value = await $fetch('/api/image-gallery')
-const { data, total } = await $fetch(`/api/video-gallery?limit=3&page=${page.value}`)
+async function loadImage(){
+    const { data, total } = await $fetch(`/api/image-gallery?limit=9&page=${page.value}`)
+    images.value = data
+    pageLengthImage.value = Math.ceil(total / 9)
+}
 
-videos.value = data
-pageLength.value = Math.ceil(total / 3)
+async function loadVideo(){
+    const { data, total } = await $fetch(`/api/video-gallery?limit=3&page=${page.value}`)
+    videos.value = data
+    pageLengthVideo.value = Math.ceil(total / 3)
+}
 
-async function changePage() {
+await loadVideo()
+await loadImage()
+
+async function changePageVideo() {
     const { data } = await $fetch(`/api/video-gallery?limit=3&page=${page.value}`)
     videos.value = data
+}
+
+async function changePageImage() {
+    const { data } = await $fetch(`/api/image-gallery?limit=9&page=${page.value}`)
+    images.value = data
 }
 
 definePageMeta({
@@ -63,7 +78,7 @@ useHead({
                 </a>
             </div>
             <v-pagination :size="$vuetify.display.mobile ? 'small' : 'default'" class="mt-4 mb-6 md:mb-10"
-                v-model="page" @update:modelValue="changePage" :total-visible="5" :length="pageLength"></v-pagination>
+                v-model="page" @update:modelValue="changePageVideo" :total-visible="5" :length="pageLengthVideo"></v-pagination>
         </div>
         <div class="pb-[6rem]">
             <h1 class="mb-8 font-semibold text-[#0088CC] text-2xl">Galeri Foto</h1>
@@ -77,6 +92,8 @@ useHead({
                     </div>
                 </a>
             </div>
+            <v-pagination :size="$vuetify.display.mobile ? 'small' : 'default'" class="mt-4 mb-6 md:mb-10"
+                v-model="page" @update:modelValue="changePageImage" :total-visible="5" :length="pageLengthImage"></v-pagination>
         </div>
     </div>
 </template>

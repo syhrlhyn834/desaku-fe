@@ -42,7 +42,7 @@ export default {
         async loadImage() {
             this.loadingImage = true
 
-            const data = await $fetch(this.$config.public.API_PUBLIC_URL + '/api/image-gallery')
+            const { data } = await $fetch(this.$config.public.API_PUBLIC_URL + '/api/image-gallery')
             this.images = data
 
             this.loadingImage = false
@@ -167,7 +167,8 @@ export default {
                     </template>
                     <template v-slot:item.actions="{ item }">
                         <div class="flex justify-end">
-                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" @click="$router.push('/dashboard/gallery/image/edit?id=' + item.uuid)"
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id"
+                                @click="$router.push('/dashboard/gallery/image/edit?id=' + item.uuid)"
                                 class="cursor-pointer mx-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
@@ -176,7 +177,8 @@ export default {
                                         clip-rule="evenodd" />
                                 </svg>
                             </div>
-                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" class="flex justify-center">
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id"
+                                class="flex justify-center">
                                 <div class="cursor-pointer" @click="openModalRemoveImages(item.uuid)">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                         viewBox="0 0 24 24">
@@ -210,7 +212,8 @@ export default {
                     </template>
                     <template v-slot:item.actions="{ item }">
                         <div class="flex float-right">
-                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id" class="cursor-pointer" @click="openModalRemoveVideos(item.uuid)">
+                            <div v-if="useParseJWT().value.is_admin == 1 || useParseJWT().value.user == item.user_id"
+                                class="cursor-pointer" @click="openModalRemoveVideos(item.uuid)">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="1.5em" height="1.5em"
                                     viewBox="0 0 24 24">
                                     <path fill="#212121"
