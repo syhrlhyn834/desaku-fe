@@ -40,7 +40,7 @@ definePageMeta({
                 <div class="text-sm md:text-base block sm:flex items-center font-normal mt-2 mb-4">
                     <div class="flex items-center max-[600px]:mb-2">
                         <IconsDate class="flex-none" />
-                        <span class="ml-1">{{ moment(post.created_at).format("LL") }}</span>
+                        <span class="ml-1">{{ moment(post.date).format("DD MMM YYYY") }}</span>
                     </div>
                     <div class="flex items-center sm:ml-2">
                         <IconsLocation class="flex-none" />
