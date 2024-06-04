@@ -29,7 +29,7 @@ async function onDrop(files) {
 
     loading.value = true
     try {
-        await $fetch(useRuntimeConfig().public.API_PUBLIC_URL + '/api/image', {
+        const data = await $fetch(useRuntimeConfig().public.API_PUBLIC_URL + '/api/image', {
             body: formData,
             headers: {
                 Authorization: "Bearer " + useToken().token
@@ -89,7 +89,7 @@ export default {
 </script>
 <template>
     <v-snackbar v-model="toastError" color="red" :timeout="3000">
-        Terjadi kesalahan saat mengupload gambar!
+        Terjadi kesalahan saat mengupload gambar, pastikan sesuai ketentuan!
         <template v-slot:actions>
             <v-btn color="white" variant="text" @click="toastError = false">
                 Tutup
@@ -166,7 +166,7 @@ export default {
                                     </v-btn>
                                 </div>
                                 <div class="mt-3">
-                                    <span>mimes: jpeg,png,jpg | max: 1mb</span>
+                                    <span>tipe: webp,svg,jpeg,png,jpg | max: 1mb</span>
                                 </div>
                             </div>
                         </div>

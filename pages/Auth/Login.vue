@@ -14,6 +14,7 @@ import { useToken } from '~/stores/token'
 export default {
     data() {
         return {
+            logo: null,
             loading: false,
             loadingReset: false,
             showPassword: false,
@@ -26,7 +27,9 @@ export default {
             toastUserNotFound: false
         }
     },
-    mounted() {
+    async mounted() {
+        this.logo = (await $fetch(this.$config.public.API_PUBLIC_URL + '/api/header')).logo
+
         document.addEventListener('keydown', async (event) => {
             if (event.key === 'Enter' || event.keyCode === 13) {
                 await this.login()
@@ -98,7 +101,7 @@ export default {
     <div class="bg-[#F8FAFC] flex items-center justify-center min-h-screen min-w-screen overflow-hidden">
         <div class="w-[85%] md:w-[400px] flex flex-column align-items-center justify-center">
             <img @click="$router.push('/')" class="cursor-pointer w-[100px] mb-6 mx-auto"
-                src="https://kertamulya-padalarang.desa.id/assets/files/data/website-desa-kertamulya-3217082001/images/logo_header.png"
+                :src="logo"
                 alt="App logo" />
             <div class="bg-white px-8"
                 style="border-radius: 36px; padding: 0.3rem; background: linear-gradient(180deg, #0088CC 10%, rgba(33, 150, 243, 0) 30%)">
