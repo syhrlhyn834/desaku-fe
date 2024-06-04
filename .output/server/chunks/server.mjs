@@ -1332,7 +1332,7 @@ const _routes = [
     meta: __nuxt_page_meta$a || {},
     alias: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.alias) || [],
     redirect: (__nuxt_page_meta$a == null ? void 0 : __nuxt_page_meta$a.redirect) || void 0,
-    component: () => import('./index-0455f967.mjs').then((m) => m.default || m)
+    component: () => import('./index-f999b994.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$9 == null ? void 0 : __nuxt_page_meta$9.name) ?? "Perangkat-Desa-id",
