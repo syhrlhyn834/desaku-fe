@@ -49,18 +49,21 @@ useHead({
         <div class="block pb-6 px-[2rem] sm:px-[6rem] md:px-[3rem] lg:px-[10rem] xl:px-[14rem] bg-white pt-6">
             <div class="grid grid-cols-1 md:grid-cols-6 md:gap-x-12">
                 <div class="block col-span-1 md:col-span-4">
-                    <div class="text-[#0088CC] border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
+                    <div @click="navigateTo('/berita')" class="text-[#0088CC] flex items-center cursor-pointer border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
                         <span>Berita Terkini</span>
+                        <IconsArrowRight />
                     </div>
                     <HomeLatestNews />
                 </div>
                 <div class="col-span-2">
-                    <div class="text-[#0088CC] border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
+                    <div @click="navigateTo('/pengumuman')" class="text-[#0088CC] flex items-center cursor-pointer border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
                         <span>Pengumuman</span>
+                        <IconsArrowRight />
                     </div>
                     <HomeLatestAnnouncement />
-                    <div class="text-[#0088CC] border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
+                    <div @click="navigateTo('/kegiatan')" class="text-[#0088CC] flex items-center cursor-pointer border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
                         <span>Agenda Kegiatan</span>
+                        <IconsArrowRight />
                     </div>
                     <HomeLatestActivities />
                 </div>
@@ -70,17 +73,20 @@ useHead({
             <div class="grid grid-cols-1 md:grid-cols-6 md:gap-x-12">
                 <HomeGallery />
                 <div class="col-span-2">
-                    <div
-                        class="text-[#0088CC] struktur border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
+                    <div @click="navigateTo('/struktur-organisasi')"
+                        class="text-[#0088CC] cursor-pointer flex items-center struktur border-[#0088CC] border-b-2 mb-6 text-xl md:text-2xl font-semibold py-3">
                         <span>Struktur Organisasi</span>
+                        <IconsArrowRight />
                     </div>
                     <div class="font-medium text-white px-2 rounded-md">
                         <swiper :autoplay="{
                             delay: 4000,
                             disableOnInteraction: false,
-                        }" :spaceBetween="30" :effect="'fade'" :navigation="true" :modules="modules" class="w-full rounded-lg">
+                        }" :spaceBetween="30" :effect="'fade'" :navigation="true" :modules="modules"
+                            class="w-full rounded-lg">
                             <swiper-slide v-for="item in perangkatDesa" class="relative rounded-lg">
-                                <v-img class="rounded-b-lg" cover width="100%" aspect-ratio="1" :lazysrc="item.image" :src="item.image" />
+                                <v-img class="rounded-b-lg" cover width="100%" aspect-ratio="1" :lazysrc="item.image"
+                                    :src="item.image" />
                                 <div
                                     class="text-sm sm:text-lg font-normal rounded-b-md z-10 py-1 backdrop-blur-xl opacity-90 pl-2 bg-[#0088CC] bottom-0 absolute w-full text-white">
                                     <span>{{ item.name }} - {{ item.job }}</span>
