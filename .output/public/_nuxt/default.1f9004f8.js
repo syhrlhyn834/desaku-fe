@@ -1,1 +1,0 @@
-import{u as e,e as t,o as a}from"./entry.9bb1a3b9.js";import o from"./AppLayout.04b7a1d0.js";import"./AppTopbar.514e5574.js";import"./layout.a8409ac3.js";import"./AppSidebar.78f9282d.js";import"./AppMenuItem.f172a22c.js";const f={__name:"default",setup(r){return e({titleTemplate:"%s - Dashboard Desaku"}),(s,m)=>(a(),t(o))}};export{f as default};
