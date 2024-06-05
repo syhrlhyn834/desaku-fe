@@ -116,34 +116,10 @@ onMounted(async () => {
         </div>
     </div>
 </template>
-<style>
+<style scoped>
 ::v-deep img {
     border-radius: 6px;
     width: 100%;
     object-fit: cover;
-}
-
-.pswp__custom-caption {
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-    width: calc(100% - 32px);
-    max-width: 400px;
-    padding: 2px 8px;
-    border-radius: 4px;
-    position: absolute;
-    left: 50%;
-    bottom: 16px;
-    text-align: center;
-    transform: translateX(-50%);
-}
-
-.pswp__custom-caption a {
-    color: #fff;
-    text-decoration: underline;
-}
-
-.hidden-caption-content {
-    display: none;
 }
 </style>

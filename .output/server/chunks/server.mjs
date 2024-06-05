@@ -1284,7 +1284,7 @@ const _routes = [
     meta: __nuxt_page_meta$g || {},
     alias: (__nuxt_page_meta$g == null ? void 0 : __nuxt_page_meta$g.alias) || [],
     redirect: (__nuxt_page_meta$g == null ? void 0 : __nuxt_page_meta$g.redirect) || void 0,
-    component: () => import('./Galeri-2747330f.mjs').then((m) => m.default || m)
+    component: () => import('./Galeri-3bb05e16.mjs').then((m) => m.default || m)
   },
   {
     name: (__nuxt_page_meta$f == null ? void 0 : __nuxt_page_meta$f.name) ?? "Kegiatan-id",
@@ -1412,7 +1412,7 @@ const _routes = [
     meta: __nuxt_page_meta || {},
     alias: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.alias) || [],
     redirect: (__nuxt_page_meta == null ? void 0 : __nuxt_page_meta.redirect) || void 0,
-    component: () => import('./index-640ba989.mjs').then((m) => m.default || m)
+    component: () => import('./index-5b19829f.mjs').then((m) => m.default || m)
   }
 ];
 const routerOptions0 = {
